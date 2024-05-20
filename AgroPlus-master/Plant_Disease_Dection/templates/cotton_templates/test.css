@@ -1,0 +1,97 @@
+* {
+    margin-top: 10px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: #00b09b;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #96c93d, #00b09b);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #96c93d, #00b09b);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+@media (max-width: 430px) and (min-width: 200px) {
+
+
+    .contents {
+        font-size: 0.6rem;
+        color: chartreuse;
+    }
+
+    .content-h1 {
+
+        font-size: 1rem;
+    }
+}
+
+.container1 {
+    display: flex;
+}
+.container3{
+    width: 1100px;
+
+}
+
+.disease-title {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    /* padding: 10px; */
+    width: auto;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: 10px;
+    margin-left: 20px;
+
+}
+.dinfo {
+    padding: 10px;
+}
+
+.disease-title2 {
+    background-color: whit;
+    color: white;
+    padding: 10px;
+    width: 600px;
+    border-radius: 8px;
+    display: flex;
+
+}
+
+.disease-name {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #52c234;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #061700, #52c234);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #061700, #52c234);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.backbtn {
+    margin: 10px;
+    position: fixed;
+}
+
+.solution-title {
+    display: flex;
+}
+
+.container2 {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: 10px;
+    margin-top: 20px;
+}

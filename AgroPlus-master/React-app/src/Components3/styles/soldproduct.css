@@ -1,0 +1,50 @@
+.sold-header{
+    margin-top: 0px;
+  }
+  .sold-main{
+      position: absolute;
+      top: 130px;
+  }
+  .card {
+  
+  
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    cursor: pointer;
+    background: white;
+    border-radius: 10px;
+    padding-bottom: 40px;
+    transition: transform .8s;
+    width: 23%;
+    height: 60%;
+    padding-bottom: 30px;
+
+
+    
+
+    &::after {
+    position: absolute;   
+    transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+
+    }
+    &:hover,
+    &:focus {
+    transform: scale3d(1.1, 1.1, 1);
+
+    &::after {
+        opacity: 1;
+    }
+    }
+  }
+  .useradded-img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.cat{
+  color: #18B5A3;
+}
+.read-more-btn{
+background-color: white;
+
+color:green;
+}

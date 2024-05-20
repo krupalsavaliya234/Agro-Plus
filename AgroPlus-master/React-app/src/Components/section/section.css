@@ -1,0 +1,182 @@
+.section01{
+    display: flex;
+    position: relative;
+    top: -80px;
+    padding-top: 120px;
+    opacity: 1;
+    z-index: 0.1;
+    margin-top: 50px;
+    font-family: myfont1;
+    background-color: #e1fcf9;
+
+}
+@font-face {
+    font-family: myfont1;
+    src: url('/public/fonts/Ranade-Variable.ttf');
+}
+.section-01{
+    flex: 5;
+    z-index: 0.1;
+    text-align: left;
+    margin-left: 130px;
+    margin-top: 0;   
+}
+
+.section-01   h2{
+    z-index: 0.1;
+    /* opacity: .8;     */
+    font-size: 55px;
+    font-weight: bolder;
+    width: 96%;
+
+    
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 50px;
+    text-align: left;
+    margin-bottom: 50px;
+    margin-left: 0px;
+}
+.section-01 p{
+    font-size: 20px;
+    z-index: 0.1;
+
+    margin-top: -20px;
+}
+.section-01 a{
+    font-weight: 600;
+    z-index: 0.1;
+    position: relative;
+    top: 10px;
+    left: 60px;
+    border-radius: 30px;
+    background-color: rgb(112, 238, 223);
+    padding: 14px;
+    padding-right: 50px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+.logo1{
+    padding-top:2px;
+    padding-left: 10px;
+    
+}
+
+.section-012{
+    flex: 6;
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+    .section01{
+        width: 100%;
+        display: flex;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        flex-direction: column-reverse;
+    
+       }
+       
+      
+       .section-01{
+        top: 27%;
+        width: 80%;
+      position: absolute;
+        margin-left:10%;
+        margin-right: 20%;
+        z-index: 1;
+        opacity: 2;
+    }
+       .section01 h2{
+        width: 100%;
+    
+        font-size: 45px;
+    
+       }
+       .section0101 p{
+        font-size:20px;
+       }
+       .section01 img{
+        width: 100%;
+
+      position: relative;
+        z-index: 0;
+        opacity:0.5;
+        height: 30%;
+        
+       }
+    }
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+   .section01{
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+
+   }
+   .section-01{
+    top: 30%;
+    width: 70%;
+  position: absolute;
+    margin-left:10%;
+    margin-right: 20%;
+    z-index: 1;
+    opacity: 2;
+}
+.section-012 img{
+  border-radius: 10px;
+}
+   .section01 h2{
+    width: 100%;
+
+    font-size: 30px;
+
+   }
+   .section01 p{
+    font-size:15px;
+   }
+   .section01 img{
+    width: 100%;
+    position: relative;
+    
+   }
+}
+
+@media only screen and (max-width: 492px) {
+    .section01{
+     width: 100%;
+     display: flex;
+     flex-direction: column-reverse;
+ 
+    }
+    .section-01{
+     top: 5%;
+     width: 90%;
+   position: absolute;
+     margin-left:3%;
+     margin-right: 3%;
+     z-index: 1;
+     opacity: 2;
+ }
+    .section01 h2{
+     width: 100%;
+ 
+     font-size: 30px;
+ 
+    }
+    .section01 p{
+     font-size:15px;
+    }
+    .section01 img{
+        height: 400px;
+     width: 100%;
+     
+    }
+ }

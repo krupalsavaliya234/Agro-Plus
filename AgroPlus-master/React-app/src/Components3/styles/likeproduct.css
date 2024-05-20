@@ -1,0 +1,109 @@
+
+.liked-main2, .login-forn2{
+    /* margin-top: 60px; */
+
+    position: absolute;
+    top: 120px;
+}
+
+
+.card2 {
+   
+  
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    cursor: pointer;
+    background: white;
+    border-radius: 10px;
+    padding-bottom: 40px;
+    transition: transform .8s;
+    width: 23%;
+    height: 60%;
+    padding-bottom: 30px;
+
+   
+    
+
+    &::after {
+      position: absolute;   
+      transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+   
+    }
+    &:hover,
+    &:focus {
+      transform: scale3d(1.1, 1.1, 1);
+  
+      &::after {
+        opacity: 1;
+      }
+    }
+}
+
+.icon-con2 {
+    position:absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 7px;
+    height: auto;
+    width: auto;
+    /* background: rgba(145, 132, 132, 0.2); */
+    background: #18B5A3;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.icons2 {
+    height: 22px;
+    width: 22px;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.useradded-img2 {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: -15px;
+}
+.likeItem2{
+    width: 97%;
+    margin: auto;
+    margin-right: 0px;
+   margin-left: 20px;
+    /* padding-left:40px ; */
+
+}
+.likeCart2{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* margin: 0px; */
+    /* margin-left:  10%; */
+    /* width: 90%; */
+     
+}
+.likeCatogary2{
+    color: #18B5A3;
+}
+.read-more-btn2{
+    background-color: white;
+ 
+    color:green;
+ }
+ .likeproduct-header2{
+    background: hsla(181, 98%, 50%, 1);
+
+    background: linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+    background: -moz-linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+    background: -webkit-linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+    height: 100vh;
+ }
+.p-header2{
+    margin-left:50px;
+    font-size: 30px;
+ }

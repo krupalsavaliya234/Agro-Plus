@@ -1,0 +1,126 @@
+.weather-container1 h1 {
+    text-align: center;
+    font-size: 36px;
+    color: black;
+    margin-top: 50px;
+}
+
+
+
+.ct {
+    font-size: 24px;
+}
+
+
+.weatherform,
+#weather-result {
+    margin: 20px auto;
+    width: 400px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.weather-input {
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.weatherform {
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(11.5px);
+    -webkit-backdrop-filter: blur(11.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin-top: -10%;
+}
+
+
+.weather-part2 {
+
+
+    padding-top: 150px;
+
+}
+
+.weather-container1 {
+    background-image: url("image/sl_031821_41530_20.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    /* background-position-y: top; */
+    background-repeat: no-repeat;
+ 
+  
+
+}
+
+/* Style the submit button */
+.weather-button {
+    background-color: #2f6371;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 50%;
+}
+
+.weather-button:hover {
+    background-color: #224659;
+}
+
+/* Style the result text */
+#weather-result {
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(11.5px);
+    -webkit-backdrop-filter: blur(11.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#weathrt-result p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.Cloud {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.Temperature {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.Humidity {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.Wind {
+    font-size: 18px;
+    margin-bottom: 10px;
+}

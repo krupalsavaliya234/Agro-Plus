@@ -1,0 +1,124 @@
+.logo2 {
+    height: 150px;
+    width: 150px;
+    margin-left: 130px;
+    margin-top: 5px;
+}
+
+
+.loginform2 {
+    height: auto;
+    width: 500px;
+    /* margin-top: 20px; */
+    border-bottom: 3px solid grey;
+    border-top: 3px solid grey;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 8px;
+    padding: 5px 30px 5px 30px;
+    /* background-color: #07695D; */
+
+    transition: box-shadow 0.1s, transform 0.1s;
+    position: relative;
+    top: 80px;
+    height: 90vh;
+    left: 33%;
+    background: hsla(181, 98%, 50%, 1);
+
+    background: linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+    background: -moz-linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+    background: -webkit-linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+}
+
+.userinput2 {
+    height: 40px;
+    border-radius: 6px;
+    border: 0.5px solid grey;
+    width: 100%;
+    /* transition: transform 300ms ease-in-out; */
+    transition: 600ms ease-in-out;
+    /* margin-top: 8px; */
+    background-color: whitesmoke;
+    padding-left: 20px;
+
+}
+
+.login-btn2 {
+    background-color: #30E5D0;
+    border-radius: 12px;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    transition: 200ms;
+    width: 80%;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 10%;
+
+}
+
+.login-btn2:not(:disabled):hover,
+.login-btn2:not(:disabled):focus {
+    outline: 0;
+    color: white;
+    background: white;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
+}
+
+.login-btn2:disabled {
+    filter: saturate(0.2) opacity(0.5);
+    -webkit-filter: saturate(0.2) opacity(0.5);
+    cursor: not-allowed;
+}
+
+.loginform2:hover {
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6);
+}
+
+.userinput2:hover {
+    background: rgb(247, 244, 244);
+    transform: scale(1.1, 1.1);
+    border: 2px #eee solid;
+}
+
+.newuser2 {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.signup-link2 {
+    text-decoration: none;
+    color: #008575;
+}
+
+.signup-link2:hover {
+    color: #30E5D0;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+}
+
+/* .box2{
+    background: hsla(181, 98%, 50%, 1);
+
+    background: linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+    background: -moz-linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+    background: -webkit-linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+ height: 100vh  ;
+} */

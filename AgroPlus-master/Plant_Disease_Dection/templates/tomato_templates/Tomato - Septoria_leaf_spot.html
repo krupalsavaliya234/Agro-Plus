@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+
+    <title>TOMATO LEAF DISEASE PREDICTION</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            /* Light gray background */
+            color: #333;
+            background: -webkit-linear-gradient(to right, #96c93d, #00b09b);
+            background: linear-gradient(to right, #96c93d, #00b09b);
+
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(195, 241, 175, 0.8);
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 70%;
+
+        }
+
+        h1 {
+            padding: 15px;
+
+            color: #333;
+            /* White text color */
+            text-align: left;
+            margin-bottom: 20px;
+
+        }
+
+        h1:hover {
+            color: #45a049;
+            /* Change color on hover */
+        }
+
+        img:hover {
+            transition: transform 0.3s ease;
+            /* Adding hover effect on image */
+            transform: scale(1.05);
+            /* Scale up the image on hover */
+        }
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border-top: 2px solid #333;
+            margin-bottom: 20px;
+        }
+
+        .border img {
+            border-radius: 15px;
+            border: 2px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .title-container h3 {
+
+            margin-right: 5px;
+        }
+
+        .title-container {
+            margin-left: 10%;
+            height: auto;
+            width: 45%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-2">
+        <div class="row mb-5">
+            <div class="col-sm">
+                <span class="border border-primary">
+                    <!-- Displaying the user-uploaded image -->
+                    {% if user_image %}
+                    <img src="{{ user_image }}" alt="Uploaded Image">
+                    {% endif %}
+                </span>
+            </div>
+            <div class="title-container ml-5">
+                <h1 class="mb-1">Disease Name :</h1>
+                <h3 class="ml-3">Spotoria Leaf sport
+                </h3>
+            </div>
+
+        </div>
+        <h1>Solution for Disease / રોગનો ઉપાય :</h1>
+        <p><strong>
+                For control, use selective products whenever possible. Selective products which have worked well
+                in the field include:<br>
+
+                bifenazate (Acramite): Group UN, a long residual nerve poison<br>
+                abamectin (Agri-Mek): Group 6, derived from a soil bacteriumF<br>
+                spirotetramat (Movento): Group 23, mainly affects immature stages<br>
+                spiromesifen (Oberon 2SC): Group 23, mainly affects immature stages<br>
+                OMRI-listed products include:
+                <br>
+                insecticidal soap (M-Pede)<br>
+                neem oil (Trilogy)<br>
+                soybean oil (Golden Pest Spray Oil)<br>
+                With most miticides (excluding bifenazate), make 2 applications, approximately 5-7 days apart,
+                to help control immature mites that were in the egg stage and protected during the first
+                application. Alternate between products after 2 applications to help prevent or delay
+                resistance.</i></strong></p>
+
+        <p>નિયંત્રણ માટે, જ્યારે પણ શક્ય હોય ત્યારે પસંદગીના ઉત્પાદનોનો ઉપયોગ કરો. પસંદગીના ઉત્પાદનો કે જે સારી રીતે કામ
+            કર્યું છે
+            ક્ષેત્રમાં શામેલ છે:<br>
+
+            bifenazate (Acramite): ગ્રુપ UN, લાંબા અવશેષ ચેતા ઝેર<br>
+            એબેમેક્ટીન (એગ્રી-મેક): જૂથ 6, જમીનના બેક્ટેરિયમ એફમાંથી ઉતરી આવ્યું છે<br>
+            spirotetramat (Movento): જૂથ 23, મુખ્યત્વે અપરિપક્વ તબક્કાઓને અસર કરે છે<br>
+            spiromesifen (Oberon 2SC): જૂથ 23, મુખ્યત્વે અપરિપક્વ તબક્કાઓને અસર કરે છે<br>
+            OMRI-સૂચિબદ્ધ ઉત્પાદનોમાં શામેલ છે:<br>
+
+            જંતુનાશક સાબુ (M-Pede)<br>
+            લીમડાનું તેલ (ટ્રિલોજી)<br>
+            સોયાબીન તેલ (ગોલ્ડન પેસ્ટ સ્પ્રે તેલ)<br>
+            મોટાભાગની મિટીસાઈડ્સ સાથે (બાયફેનાઝેટ સિવાય), 2 અરજીઓ કરો, લગભગ 5-7 દિવસના અંતરે,
+            અપરિપક્વ જીવાતને અંકુશમાં રાખવામાં મદદ કરવા માટે જે ઇંડા અવસ્થામાં હતા અને પ્રથમ દરમિયાન સુરક્ષિત હતા
+            અરજી અટકાવવા અથવા વિલંબમાં મદદ કરવા માટે 2 એપ્લિકેશન પછી ઉત્પાદનો વચ્ચે વૈકલ્પિક</p>
+    </div>
+</body>
+
+</html>

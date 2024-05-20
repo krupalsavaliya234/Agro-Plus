@@ -1,0 +1,115 @@
+.header-container {
+    padding: 10px 20px;
+    background-color: #002f3408;
+    border-bottom: 3px solid #fff;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    margin-top: 0px;
+}
+
+.cat-container1 {
+    background-color: #07695D;
+    padding: 8px 20px;
+    color: white;
+    cursor: pointer;
+    /* position: absolute; */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: fixed;
+    z-index: 2;
+    top: 60px;
+    margin-left: 40px;
+    width: 90%;
+    margin: auto;
+    left: 70px;
+    margin-top: 0px;
+
+
+}
+.category1{
+    padding: 7px;
+}
+
+.header01{
+ z-index: 3;  
+}
+.home-class {
+    margin-top: -20px;
+}
+
+.cat-main {
+    bottom: 10px;
+
+
+}
+
+.pr-3:hover {
+    color: #70EEDF;
+}
+
+.mt-3 {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.search {
+    margin-left: 80px;
+    outline: none;
+    padding-left: 10px;
+    width: 600px;
+    height: 44px;
+    border-left: 0.5px solid rgba(255, 255, 255, 0.125);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.125);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.125);
+    border-radius: 10px 0px 0px 10px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
+}
+
+.search-btn {
+    height: 44px;
+    background-color: #07695D;
+    color: #fff;
+    border-radius: 0px 10px 10px 0px;
+
+    border-right: 0.5px solid rgba(255, 255, 255, 0.125);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.125);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.125);
+    padding: 0px 15px;
+
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 0px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.logout-btn {
+    height: 35px;
+    background-color: #002f34;
+    color: #fff;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    padding: 1px 16px;
+    margin-right: 10px;
+    z-index: -1;
+}
+
+.category {
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.category:hover {
+    color: #70EEDF;
+}
+
+.login-select {
+    background-color: white;
+    border-radius: 5px;
+    border: 0.5px solid rgba(255, 255, 255, 0.125);
+    backdrop-filter: blur(20px);
+    height: 40px;
+    margin-left: 5px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 0px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}

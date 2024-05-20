@@ -1,0 +1,124 @@
+body {
+   background: white;
+    height: 100vh; 
+}
+
+.container1 {
+   margin-top: 30px;
+   width: auto;
+   height: auto;
+   border: 1px solid grey;
+   background: #f8f7f4;
+   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+   border-radius: 10px;
+   border: 1px solid rgba(255, 255, 255, 0.18);
+   padding: 20px;
+
+
+}
+
+.p-image {
+   border-radius: 10px;
+   object-fit: cover;
+
+}
+
+.btn {
+   background-color: #07695D;
+   color: white;
+   display: flex;
+   width: 20%;
+}
+
+.btn:hover {
+   background-color: #1bb1a0;
+}
+
+.contact-details {
+   background-color: #0c8677;
+   color: white;
+   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+   border-bottom-right-radius: 5px;
+   border-bottom-left-radius: 5px;
+   width: max-content;
+   padding: 10px;
+   width: 20%;
+   
+   margin-top: -5px;
+}
+
+.contact-img {
+   height: 25px;
+   width: 25px;
+   margin-right: 10px;
+}
+
+.product-img {
+   height: 35px;
+   width: 35px;
+}
+
+.chat {
+   height: max-content;
+   width: 300px;
+   padding: 20px;
+   background:#0c8677;
+   border-radius: 10px;
+   align-items: center;
+   margin-right: 30px;
+
+}
+
+.slider-container {
+   width: 500px;
+   height: 500px;
+}
+
+.mainpage {
+   display: flex;
+   flex-direction: column;
+}
+
+.main1 {
+
+   display: flex;
+   position: absolute;
+   top: 30px;
+
+}
+
+.contact-btn {
+   padding: 8px;
+   border-radius: 5px;
+
+}
+
+.contact-details1 {
+   width: 10px;
+   height: auto;
+   background-color: red;
+   /* display: none; */
+}
+
+.part2 {
+   margin-top: 90px;
+   /* position:absolute; */
+}
+.name-container{
+font-size: 20px;
+color: black;
+}
+.product-desc{
+   font-size: 16px;
+   color: black;
+}
+.btn1{
+   margin-left: 30%;
+   padding: 10px;
+   width:100px;
+   border-radius: 10px;
+   background-color: #1bb1a0;
+}
+.chat-header{
+   color: white;
+}

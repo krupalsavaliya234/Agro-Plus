@@ -1,0 +1,76 @@
+.header-container{
+    background-image: linear-gradient(
+        115deg,
+        hsl(169deg 91% 58%) 0%,
+        hsl(167deg 89% 67%) 11%,
+        hsl(166deg 89% 74%) 22%,
+        hsl(166deg 88% 79%) 33%,
+        hsl(165deg 87% 83%) 44%,
+        hsl(164deg 87% 87%) 56%,
+        hsl(164deg 86% 91%) 67%,
+        hsl(164deg 86% 94%) 78%,
+        hsl(163deg 86% 97%) 89%,
+        hsl(0deg 0% 100%) 100%
+      );
+    border-bottom: none;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    
+    
+    }
+    .header{
+        display: flex;
+    
+    }
+    .login-select{
+        background-color:whitesmoke;
+        border-radius: 5px;
+        border: 1px solid grey;
+        backdrop-filter: blur(20px);
+        height: 40px;
+        margin-left: 5px;
+    }
+    .loginbtn{
+        text-decoration: none;
+        font-size: 20px;
+        background-color:#32F5D1;
+        color: black;
+        padding: 8px 20px 8px 20px;
+        font-weight: bold;
+        border-radius: 10px;
+        align-self: flex-end;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }
+    .loginbtn:hover{
+        background-color:#0E4D44;
+        color: white;
+    }
+    .signupbtn:hover{
+        background-color:#0E4D44;
+        color: white;
+    }
+    /* .login-header-image{
+        position: relative;
+        right: -100%;
+    } */
+    .login-header-box{
+        position: relative;
+        right: -950px;
+    }
+    .signupbtn{
+        text-decoration: none;
+        font-size: 20px;
+        background-color:#32F5D1;
+        color: black;
+        padding: 8px 20px 8px 20px;
+        font-weight: bold;
+        border-radius: 10px;  
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        margin-left: 10px;
+    }
+    .navlink-container{
+        align-self: center;
+    margin-left: 60%;
+    
+    }

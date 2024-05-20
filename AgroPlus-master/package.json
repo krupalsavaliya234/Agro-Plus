@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "assert": "^2.1.0",
+    "browserify-zlib": "^0.2.0",
+    "https-browserify": "^1.0.0",
+    "init": "^0.1.2",
+    "node": "^18.20.1",
+    "react-toastify": "^10.0.5",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.3",
+    "util": "^0.12.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "plantDetection": "cd Plant_Disease_Dection && python -u main.py",
+    "homepage": "cd React-app && npm run start",
+    "backend": "cd node-app && npm start",
+    "dev": "concurrently \"npm run plantDetection\" \"npm run homepage\" \"npm run backend\""
+  }
+}

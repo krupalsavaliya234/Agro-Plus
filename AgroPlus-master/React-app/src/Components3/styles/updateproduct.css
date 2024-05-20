@@ -1,0 +1,238 @@
+
+.updateform {
+    height: auto;   
+    width: 60%;
+    position: absolute;
+    top: 50px;
+    left: 19%;
+    margin-top: 20px;
+    border: none;
+     border-radius: 8px;
+    padding: 30px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    background-color: white;
+    transition: box-shadow 0.33s, transform 0.1s;
+    background: hsla(181, 98%, 50%, 1);
+
+    background: linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+    background: -moz-linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+    background: -webkit-linear-gradient(90deg, hsla(181, 98%, 50%, 1) 0%, hsla(0, 0%, 100%, 1) 0%, hsla(175, 60%, 55%, 1) 100%);
+
+}
+.update-form{
+    width: 100%;
+    margin: auto;
+    margin-left: 90px;
+    margin-top: 20px;
+}
+.updateform h2{
+    margin-top: 0px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.updateform label{
+    font-size: 19px;
+    margin-top: 13px;
+    margin-bottom: -43px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.add-span{
+    color: red;
+}
+.userinput {
+    height: 40px;
+    border-radius: 6px;
+    border: 0.5px solid grey;
+    width: 80%;
+    margin: auto;
+    /* transition: transform 300ms ease-in-out; */
+    transition: 600ms ease-in-out;
+    margin-top: 8px;
+    background-color:whitesmoke;
+    padding-left: 20px;
+
+}
+
+.update-title {
+    text-align: center;
+}
+.update-title1 {
+    margin-top: -10px   ;
+    text-align: center;
+}
+
+
+.update-btn {
+    background-color: #30E5D0;
+    border-radius: 12px;
+    color: #000;
+    cursor: pointer;    
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    transition: 200ms;
+    width: 30%;
+    margin: auto;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 30px;
+    align-items: center;
+    margin-left: 20%;
+    
+}
+
+.update-btn:not(:disabled):hover,
+.update-btn:not(:disabled):focus {
+    outline: 0;
+    color: white;
+    background: #008575;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
+}
+
+.update-btn:disabled {
+    filter: saturate(0.2) opacity(0.5);
+    -webkit-filter: saturate(0.2) opacity(0.5);
+    cursor: not-allowed;
+}
+
+.updateform:hover {
+    box-shadow: rgba(18, 19, 19, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.48) -6px 22px 16px 0px;
+
+}
+
+.userinput:hover {
+    background: rgb(247, 244, 244);
+    transform: scale(1.1, 1.1);
+    border: 2px #eee solid;
+}
+.newuser{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 16px;
+}
+.signup-link{
+    text-decoration: none;
+    color: #008575;
+}
+.signup-link:hover{
+    color: #30E5D0;
+}
+.file-input-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.userinput1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.custom-file-upload span {
+    display: inline-block;
+    overflow: hidden;
+   
+}
+.image-container {
+    display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust column width as needed */
+  grid-gap: 10px; 
+    margin-left: -60px;
+  margin-top: 30px;
+  }
+  
+.image-item {
+  height: 300px;
+   margin-bottom: -80px; 
+
+  }
+  
+  .image-item img{
+    width: 220px; /* Ensure the image fills its container */
+    height: 200px;
+    border-radius: 10px;
+    /* margin-left: -40px; */
+  }
+
+
+.update-btn1 {
+    position: relative;
+    
+    bottom: 50px;
+  right: -45px;
+    background-color: #e8eceb;
+    border-radius: 12px;
+    color: black;
+    cursor: pointer;    
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    transition: 200ms;
+    width: 50%;
+    margin: auto;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    align-items: center;
+    margin-bottom: 150px;
+    
+}
+
+.update-btn1:not(:disabled):hover,
+.update-btn1:not(:disabled):focus {
+    outline: 0;
+    color: white;
+    background: #008575;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
+}
+
+.update-btn1:disabled {
+    filter: saturate(0.2) opacity(0.5);
+    -webkit-filter: saturate(0.2) opacity(0.5);
+    cursor: not-allowed;
+}
+.updateproduct-header{
+    margin-top: 0px;
+}
+.file-input{
+    padding: 5px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .image-item {
+      flex-basis: calc(50% - 20px); /* Two items per row */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .image-item {
+      flex-basis: calc(100% - 20px); /* Single item per row */
+    }
+  } 
+  .updateform h2{
+    margin-left: 10%;
+  }
+

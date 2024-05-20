@@ -1,0 +1,119 @@
+
+.market-price-form{
+    flex-direction: column;
+    height: 50%;  
+    justify-content: center;   
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: rgba( 255, 255, 255, 0.8 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 18px );
+    -webkit-backdrop-filter: blur( 18px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    display: flex;
+    border: 1px solid black;
+    padding: 15% 10%;
+    
+}
+.market-div{
+    position: relative;
+    top: -60px;
+}
+.market-div select{
+    width: 100%;
+}
+select {
+    padding: 8px;
+    font-size: 16px;
+}
+
+.market-img{
+    width: 300px;
+    height: 200px;
+    margin-top: 100px;
+}
+.marketprice-btn{
+    padding: 10px;
+    font-size: 16px;
+    background-color: #07695D;
+    color: white;
+    margin-top: 30px;
+    width: 80%;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+/* Table Styles */
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color:#07695D;
+    color: white;
+}
+
+/* Heading Styles */
+h1 {
+    margin-top: 20px;
+}
+
+.market {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+}
+
+
+.marketprice-container
+{   
+    background: rgb(2,0,36);
+    background: linear-gradient(171deg, rgba(2,0,36,1) 0%, rgba(216,232,235,1) 0%, rgba(52,198,193,1) 100%, rgba(34,165,184,1) 100%);
+    height: auto;
+}
+.marketprice-container1{
+    background: rgb(2,0,36);
+    background: linear-gradient(171deg, rgba(2,0,36,1) 0%, rgba(216,232,235,1) 0%, rgba(52,198,193,1) 100%, rgba(34,165,184,1) 100%);
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+select{
+    border-radius: 10px;
+}
+
+.market-table{
+    position: relative;
+    top: 60px;
+    right: 30px;
+    background: whitesmoke;
+    margin-left: 30%;
+    margin-top: -10%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+}
+.table-p{
+    position: relative;
+    top: 20px;
+    left: 60px;
+    font-size: 24px;
+}
+

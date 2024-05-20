@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+
+    <title>TOMATO LEAF DISEASE PREDICTION</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            /* Light gray background */
+            color: #333;
+            background: -webkit-linear-gradient(to right, #96c93d, #00b09b);
+            background: linear-gradient(to right, #96c93d, #00b09b);
+
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(195, 241, 175, 0.8);
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 50%;
+
+        }
+
+        h1 {
+            padding: 15px;
+     
+            color: #333;
+            /* White text color */
+            text-align: left;
+            margin-bottom: 20px;
+        
+        }
+
+        h1:hover {
+            color: #45a049;
+            /* Change color on hover */
+        }
+
+        img:hover {
+            transition: transform 0.3s ease;
+            /* Adding hover effect on image */
+            transform: scale(1.05);
+            /* Scale up the image on hover */
+        }
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border-top: 2px solid #333;
+            margin-bottom: 20px;
+        }
+
+        .border img {
+            border-radius: 15px;
+            border: 2px solid black;
+            height: 300px;
+            width: 300px;
+        }
+        .title-container h3{
+        
+            margin-right: 5px;
+        }
+        .title-container{
+            margin-left: 10%;
+            height: auto;
+            width: 45%;
+          
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-2">
+        <div class="row mb-5">
+            <div class="col-sm">
+                <span class="border border-primary">
+                    <!-- Displaying the user-uploaded image -->
+                    {% if user_image %}
+                    <img src="{{ user_image }}" alt="Uploaded Image">
+                    {% endif %}
+                </span>
+            </div>
+                <div class="title-container ml-5">
+                    <h1 class="mb-1">Disease Name :</h1>
+                    <h3 class="ml-3" >Yello Leaf Curl 
+                    </h3>
+                </div>
+             
+        </div>
+        <h1>Solution for Disease / રોગનો ઉપાય :</h1>
+        <p><strong>  
+            Inspect plants for whitefly infestations two times per week. If whiteflies are beginning to appear, spray with azadirachtin (Neem), pyrethrin or insecticidal soap. For more effective control, it is recommended that at least two of the above insecticides be rotated at each spraying.</i></strong></p>
+        
+        <p>અઠવાડિયામાં બે વાર સફેદ માખીના ઉપદ્રવ માટે છોડનું નિરીક્ષણ કરો. જો સફેદ માખી દેખાવા લાગી હોય, તો એઝાડિરાક્ટીન (લીમડો), પાયરેથ્રિન અથવા જંતુનાશક સાબુનો છંટકાવ કરો. વધુ અસરકારક નિયંત્રણ માટે, દરેક છંટકાવ વખતે ઉપરોક્તમાંથી ઓછામાં ઓછા બે જંતુનાશકોને ફેરવવાની ભલામણ કરવામાં આવે છે.</p>
+    </div>
+</body>
+
+</html>
