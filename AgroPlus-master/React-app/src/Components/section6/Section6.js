@@ -8,24 +8,24 @@ function Section6() {
         <div className="link1-container">
             
             <div className="buy-link1">
-            <Link to="/home" > <img src="public/images/Successful purchase-bro.png" alt="Sorry" width="200px" height="200px" /></Link>
+            <Link to="/home" > <img src="Images/Successful purchase-bro.png" alt="Sorry" width="200px" height="200px" /></Link>
                 <div className="img-container">
                     <div className="div1">
                         <p className="sell">Buy Product</p>
                     </div>
                     <div className="div2">
-                        <img src="images/left-arrow.png" alt="" height="30px" width="30px" />
+                        <img src="Images/left-arrow.png" alt="" height="30px" width="30px" />
                     </div>
                 </div>
             </div>
             <div className="buy-link1">
-               <Link to="/add-product" > <img src="images/Select-amico.png" alt="" width="200px" height="200px" /></Link>
+               <Link to="/add-product" > <img src="Images/Select-amico.png" alt="" width="200px" height="200px" /></Link>
                 <div className="img-container">
                     <div className="div1">
                         <p className="sell">Sell Product</p>
                     </div>
                     <div className="div2">
-                        <img src="images/left-arrow.png" alt="" height="30px" width="30px" />
+                        <img src="Images/left-arrow.png" alt="" height="30px" width="30px" />
                     </div>
                 </div>
             </div>
