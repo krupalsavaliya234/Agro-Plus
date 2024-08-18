@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link, useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import LoginHeader from "./LoginHeader";
 import axios from "axios";
 import API_URL from "../constants";
-import toast, { Toaster } from 'react-hot-toast'; 
+import toast, { Toaster } from 'react-hot-toast';
 
 import "./styles/login.css";
 
@@ -17,44 +17,43 @@ function Login() {
   const handleApi = async (e) => {
     e.preventDefault();
     setWait(true);
-    const url = API_URL + "/login";
+    const url = `${API_URL}/login`; // Ensure correct URL formation
     const data = { username, password };
-    
+
     try {
       const res = await axios.post(url, data);
 
-      if (res.data.message && res.data.token) {
+      if (res.data.token) { // Check for token to confirm successful login
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userId", res.data.userId);
         localStorage.setItem("userName", res.data.username);
 
-        toast('🎉 Successfully Logged In!', {
+        toast.success('🎉 Successfully Logged In!', { // Use toast.success for success message
           duration: 5000,
           position: 'top-center',
           style: { marginTop: "140px" },
           icon: '👏',
         });
 
-        setWait(false);
         navigate("/");
       } else {
-        toast('🙇 Please Try Again. Check Your Details!', {
+        toast.error('🙇 Please Try Again. Check Your Details!', { // Use toast.error for error message
           duration: 10000,
           position: 'top-center',
           style: { marginTop: "140px", width: "300px" },
           icon: '❌',
         });
-        setWait(false);
       }
     } catch (err) {
-      toast('🙇 Server Error. Please Try Again Later.', {
+      toast.error('🙇 Server Error. Please Try Again Later.', { // Use toast.error for error message
         duration: 5000,
         position: 'top-center',
         style: { marginTop: "140px" },
         icon: '🚨',
       });
-      console.error(err);
-      setWait(false);
+      console.error('Error:', err); // Improved error logging
+    } finally {
+      setWait(false); // Ensure wait state is reset in all cases
     }
   };
 
@@ -94,7 +93,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />
-          <button className="login-btn3" type="submit">
+          <button className="login-btn3" type="submit" disabled={wait}>
             {wait ? "PLEASE WAIT..." : "LOGIN"}
           </button>
           <br />
