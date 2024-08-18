@@ -8,7 +8,7 @@ function Section6() {
         <div className="link1-container">
             
             <div className="buy-link1">
-            <Link to="/home" > <img src="images/Successful purchase-bro.png" alt="" width="200px" height="200px" /></Link>
+            <Link to="/home" > <img src="public/images/Successful purchase-bro.png" alt="" width="200px" height="200px" /></Link>
                 <div className="img-container">
                     <div className="div1">
                         <p className="sell">Buy Product</p>
