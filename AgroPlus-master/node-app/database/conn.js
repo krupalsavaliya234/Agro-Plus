@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+    const mongoose = require("mongoose");
 
 // Correct the variable name to process.env.DATABASE
 const DB = process.env.DATABASE;

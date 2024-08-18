@@ -41,6 +41,7 @@ function Signup() {
     axios
       .post(url, data)
       .then((res) => {
+        console.log(res)
         toast.success("User Added", {
           onClose: () => navigate("/"),
           autoClose: 1000,
