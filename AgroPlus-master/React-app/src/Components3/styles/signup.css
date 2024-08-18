@@ -71,7 +71,7 @@
 .login-btn2:not(:disabled):focus {
     outline: 0;
     color: white;
-    background: white;
+    background: rgb(30, 213, 201);
     box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
 }
 

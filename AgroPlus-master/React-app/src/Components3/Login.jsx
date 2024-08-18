@@ -3,15 +3,18 @@ import { Link, useNavigate, NavLink } from "react-router-dom";
 import LoginHeader from "./LoginHeader";
 import axios from "axios";
 import API_URL from "../constants";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
+import toast, { Toaster } from 'react-hot-toast'; 
+
 import "./styles/login.css";
 function Login() {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+const [wait,setWait]=useState(false)
   const handleApi = (e) => {
+    setWait(true)
     e.preventDefault();
     const url = API_URL + "/login";
     const data = { username, password };
@@ -23,17 +26,97 @@ function Login() {
           localStorage.setItem("userId", res.data.userId);
           localStorage.setItem("userName", res.data.username);
   
-          toast("Login Successfully", {
-            onClose: () => navigate("/"),
-            autoClose: 1500,
+          toast('|           Sucessfully Login 🎉           |', {
+            duration: 5000,
+            position: 'top-center',
+          
+            // Styling
+            style: {marginTop:"140px"},
+            className: '',
+          
+            // Custom Icon
+            icon: '👏',
+          
+            // Change colors of success/error/loading icon
+            iconTheme: {
+              primary: '#000',
+              secondary: '#fff',
+            },
+          
+            // Aria
+            ariaProps: {
+              role: 'status',
+              'aria-live': 'polite',
+            },
+            onclose:{
+              
+            }
           });
+          setWait(false)
+        navigate("/")
+        
         } else {
-          // Handle unsuccessful login here
-          toast.error("Login Failed");
+          toast('          Please Try again 🙇 , Check your details.!!           ', {
+            duration: 10000,
+            position: 'top-center',
+          
+            // Styling
+            style: {marginTop:"140px",width:"300px"},
+            className: '',
+          
+            // Custom Icon
+            icon: '👏',
+          
+            // Change colors of success/error/loading icon
+            iconTheme: {
+              primary: '#000d',
+              secondary: '#fff',
+            },
+          
+            // Aria
+            ariaProps: {
+              role: 'status',
+              'aria-live': 'polite',
+            },
+            onclose:{
+              
+            }
+          });
+
         }
+        setWait(false)
+
+        // navigate("/")
       })
       .catch((err) => {
-        alert("SERVER ERR");
+        toast('|         Try again later .🙇 Server error        |', {
+          duration: 5000,
+          position: 'top-center',
+        
+          // Styling
+          style: {marginTop:"140px"},
+          className: '',
+        
+          // Custom Icon
+          icon: '👏',
+        
+          // Change colors of success/error/loading icon
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+        
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+          onclose:{
+            
+          }
+        });
+        setWait(false)
+
       });
   };
   
@@ -79,7 +162,7 @@ function Login() {
           <br></br>
           <button className="login-btn3" type="submit">
             {" "}
-            LOGIN{" "}
+           {wait? "PLEASE WAIT...":"LOGIN"} {" "}
           </button>
           <br></br>
           <p className="newuser3">
@@ -90,7 +173,7 @@ function Login() {
           </p>
         </form>
       </div>
-      <ToastContainer />
+      <Toaster></Toaster>
     </div>
   );
 }

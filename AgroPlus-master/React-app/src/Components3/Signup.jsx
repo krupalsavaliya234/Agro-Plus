@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../constants";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 // import "./CSS/signUp.css"
+import toast, { Toaster } from 'react-hot-toast'; 
 import "./styles/signup.css";
 import LoginHeader from "./LoginHeader";
 
@@ -15,6 +16,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
+  const [wait,setWait]=useState(false);
  
 
   const getotp = async (e) => {
@@ -35,24 +37,98 @@ function Signup() {
       });
   }
   const handleApi = (e) => {
+    setWait(true);
     e.preventDefault();
     const url = API_URL + "/signup";
     const data = { username, password, mobile, email };
     axios
       .post(url, data)
       .then((res) => {
-        console.log(res)
-        toast.success("User Added", {
-          onClose: () => navigate("/"),
-          autoClose: 1000,
-        });
-
-        if (res.data.message) {
+        
+       setWait(false)
+        if (res.status==201) {
           // console.log(res.data)
+          toast('|            User Added Sucessfully            |', {
+            duration: 10000,
+            position: 'top-center',
+          
+            // Styling
+            style: {marginTop:"140px"},
+            className: '',
+          
+            // Custom Icon
+            icon: '👏',
+          
+            // Change colors of success/error/loading icon
+            iconTheme: {
+              primary: '#000',
+              secondary: '#fff',
+            },
+          
+            // Aria
+            ariaProps: {
+              role: 'status',
+              'aria-live': 'polite',
+            },
+          });
         }
+        else if(res.status==202)
+        {
+          toast('  You are alraddy Exists. 🙇Please LOGIN.       ', {
+            duration: 10000,
+            position: 'top-center',
+          
+            // Styling
+            style: {marginTop:"140px",width:"400px"},
+            className: '',
+          
+            // Custom Icon
+            icon: '',
+          
+            // Change colors of success/error/loading icon
+            iconTheme: {
+              primary: '#000',
+              secondary: '#fff',
+            },
+          
+            // Aria
+            ariaProps: {
+              role: 'status',
+              'aria-live': 'polite',
+            },
+          });
+        }
+        setTimeout(() => {
+          
+          navigate("/login")
+        }, 10000);
       })
+
       .catch((err) => {
-        toast.error("SERVER ERR");
+        console.log(err.message)
+        toast('Please Try again later 🙇', {
+          duration: 4000,
+          position: 'top-center',
+        
+          // Styling
+          style: {},
+          className: '',
+        
+          // Custom Icon
+          icon: '👏',
+        
+          // Change colors of success/error/loading icon
+          iconTheme: {
+            primary: '#000',
+            secondary: '#fff',
+          },
+        
+          // Aria
+          ariaProps: {
+            role: 'status',
+            'aria-live': 'polite',
+          },
+        });
       });
   };
 
@@ -131,7 +207,7 @@ function Signup() {
             <br></br>
             <button className="login-btn2" type="submit">
               {" "}
-              SIGNUP{" "}
+             {wait?"PLEASE WAIT..." :"SIGNUP" } {" "}
             </button>
             <p className="newuser2">
               New User ?{" "}
@@ -142,7 +218,8 @@ function Signup() {
             </p>
         
         </form>
-        <ToastContainer />
+        <Toaster /> 
+        {/* <ToastContainer /> */}
       </div>
     
   );
