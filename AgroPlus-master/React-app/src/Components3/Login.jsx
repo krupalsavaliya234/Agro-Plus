@@ -115,6 +115,7 @@ const [wait,setWait]=useState(false)
             
           }
         });
+        console.log(err)
         setWait(false)
 
       });
