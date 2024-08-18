@@ -103,7 +103,7 @@ function ProductDetail() {
               <div className="container1">
                 <h2>
                   {" "}
-                  <img className="product-img" src="/images/file.png" /> Product
+                  <img className="product-img" src="Images/file.png" /> Product
                   Details{" "}
                 </h2>
 
