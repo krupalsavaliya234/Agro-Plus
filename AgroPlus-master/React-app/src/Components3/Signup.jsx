@@ -11,9 +11,9 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
   const [wait, setWait] = useState(false);
-
+  const [mobile, setMobile] = useState("");
+  
   const getotp = async (e) => {
     e.preventDefault();
     const url = `${API_URL}/signup`;
