@@ -23,22 +23,31 @@ module.exports.likeProducts = (req, res) => {
         })
 
 }
+module.exports.signup = async (req, res) => {
+    try {
+        const { username, password, email, mobile } = req.body;
 
-module.exports.signup = (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    const email = req.body.email;
-    const mobile = req.body.mobile;
-    const user = new Users({ username: username, password: password, email, mobile });
-    user.save()
-        .then(() => {
-            res.send({ message: 'saved success.' })
-        })
-        .catch(() => {
-            res.send({ message: 'server err' })
-        })
+        // Check if a user with the given email already exists
+        const existingUser = await Users.findOne({ email: email });
 
-}
+        if (existingUser) {
+            return res.status(202).send({ message: 'User already exists' });
+        }
+
+        // Create a new user
+        const user = new Users({ username, password, email, mobile });
+
+        // Save the user to the database
+        await user.save();
+
+        // Send success response
+        res.status(201).send({ message: 'User saved successfully' });
+
+    } catch (error) {
+        // Handle server errors
+        res.status(500).send({ message: 'Server error', error: error.message });
+    }
+};
 
 module.exports.myProfileById = (req, res) => {
     let uid = req.params.userId
