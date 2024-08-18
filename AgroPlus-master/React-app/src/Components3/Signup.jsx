@@ -66,7 +66,7 @@ function Signup() {
       
             <img
               className="logo2 mb-2"
-              src="images/Sign up-amico.png"
+              src="Images/Sign up-amico.png"
              
             ></img>
             <h3 className="login-title2"> Welcome to Signup Page </h3>
