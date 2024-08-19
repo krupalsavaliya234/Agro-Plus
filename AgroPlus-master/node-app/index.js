@@ -1,15 +1,16 @@
-require("dotenv").config();
+require("dotenv").config(); // Ensure dotenv is configured
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-var jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const http = require("http");
 const { Server } = require("socket.io");
 const productController = require("./controllers/productController");
 const userController = require("./controllers/userController");
 const { addProduct, selled } = require("./controllers/selledProduct");
-require("./database/conn");
+const mongoose = require("mongoose");
+require("./database/conn"); // Ensure this connects to your MongoDB
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -27,27 +28,27 @@ const app = express();
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "*",
+    origin: "*", // Adjust this to restrict CORS if necessary
   },
 });
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-// app.use(cors({
-//   origin: 'https://agroplus-rust.vercel.app', // or '*' to allow all origins
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the methods you want to allow
-//   allowedHeaders: ['Content-Type', 'Authorization'] // Specify the headers you want to allow
-// }));
-app.use(cors())
+app.use(cors({
+  origin: 'https://agroplus-rust.vercel.app', // or '*' to allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the methods you want to allow
+  allowedHeaders: ['Content-Type', 'Authorization'] // Specify the headers you want to allow
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const port = 4000;
-const mongoose = require("mongoose");
-// mongoose.connect('mongodb://localhost:27017');
+const port = process.env.PORT || 4000; // Use environment variable for port
+
 app.get("/", (req, res) => {
   res.send("hello...");
 });
 
+// Routes
 app.get("/search", productController.search);
 app.post("/like-product", userController.likeProducts);
 // app.post('/dislike-product', userController.dislikeProducts)
@@ -85,7 +86,7 @@ app.get("/get-user/:uId", userController.getUserById);
 app.post("/login", userController.login);
 app.delete("/delete-product/:id", productController.deleteProduct);
 app.get("/get-selled-products", selled);
-app.get("/get-item/:catogary", productController.getItem);
+app.get("/get-item/:category", productController.getItem); // Fixed typo: `catogary` -> `category`
 app.post(
   "/selled-product",
   upload.fields([
@@ -97,6 +98,8 @@ app.post(
   ]),
   addProduct
 );
+
+// Socket.IO setup
 let messages = [];
 
 io.on("connection", (socket) => {
@@ -110,6 +113,12 @@ io.on("connection", (socket) => {
   io.emit("getMsg", messages);
 });
 
+// Global Error Handling Middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
 httpServer.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Server listening on port ${port}`);
 });
