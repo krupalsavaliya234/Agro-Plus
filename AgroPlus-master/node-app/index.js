@@ -36,7 +36,8 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cors({
   origin: [
     'https://agroplus-119g7o8yr-krupalsavaliya234s-projects.vercel.app',
-    'https://krupal-savaliya.vercel.app'
+    'https://krupal-savaliya.vercel.app',
+    'https://agroplus-rust.vercel.app/login'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
