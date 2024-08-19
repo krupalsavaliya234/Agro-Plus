@@ -13,18 +13,6 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [wait, setWait] = useState(false);
   const [mobile, setMobile] = useState("");
-  
-  const getotp = async (e) => {
-    e.preventDefault();
-    const url = `${API_URL}/signup`;
-    const data = { mobile };
-    try {
-      const res = await axios.post(url, data);
-      toast.success("OTP sent");
-    } catch (err) {
-      toast.error("Server error, please try again later.");
-    }
-  }
 
   const handleApi = async (e) => {
     e.preventDefault();
@@ -56,8 +44,19 @@ function Signup() {
       }
     } catch (err) {
       setWait(false);
-      toast.error('Server error, please try again later.');
-      console.error(err.message);
+      if (err.response) {
+        // Server responded with a status other than 2xx
+        console.error('Server Error:', err.response.data);
+        toast.error(`Error: ${err.response.data.message || "Server error, please try again later."}`);
+      } else if (err.request) {
+        // Request was made but no response was received
+        console.error('Network Error:', err.request);
+        toast.error("Network error, please try again later.");
+      } else {
+        // Something else happened while setting up the request
+        console.error('Error:', err.message);
+        toast.error("An error occurred. Please try again later.");
+      }
     }
   };
 
