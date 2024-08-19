@@ -34,10 +34,14 @@ const io = new Server(httpServer, {
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cors({
-  origin: 'https://agroplus-rust.vercel.app', // or '*' to allow all origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the methods you want to allow
-  allowedHeaders: ['Content-Type', 'Authorization'] // Specify the headers you want to allow
+  origin: [
+    'https://agroplus-119g7o8yr-krupalsavaliya234s-projects.vercel.app',
+    'https://krupal-savaliya.vercel.app'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
