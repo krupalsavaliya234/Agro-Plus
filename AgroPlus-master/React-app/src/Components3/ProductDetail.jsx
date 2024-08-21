@@ -142,7 +142,7 @@ function ProductDetail() {
                   {product.pname} | <span className="cat">{product.category}</span>
                 </p>
                 <p className="product-desc m-2 mt-4">{product.pdesc}</p>
-                {/* {
+                {
                   product.addedBy && (
                     <button
                       className="btn mt-4"
@@ -161,7 +161,7 @@ function ProductDetail() {
                     {user.mobile && <h6>{user.mobile}</h6>}
                     {user.email && <h6>{user.email}</h6>}
                   </div>
-                )} */}
+                )}
               </div>
             </div>
           )}
