@@ -61,7 +61,7 @@ function ProductDetail() {
     // Toggle display of contact details
     setDisplayDetails(!displayDetails);
 
-    if (displayDetails) { // Fetch user details only if displayDetails is false
+    if (!displayDetails) { // Fetch user details only if displayDetails is false
       try {
         // Construct the URL
         const url = `${API_URL}/get-user/${addedBy}`;
@@ -75,9 +75,7 @@ function ProductDetail() {
         if (userData) {
           // Update the state with the user data
           setUser(userData);
-          console.log("User data retrieved successfully:", userData);
-        } else {
-          console.error("No user data found in response.");
+          // console.log("User data retrieved successfully:", userData);
         }
       } catch (err) {
         // Log the error to the console and display an alert
