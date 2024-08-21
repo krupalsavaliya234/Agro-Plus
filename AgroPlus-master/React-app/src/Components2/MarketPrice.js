@@ -60,7 +60,7 @@ const MarketPrice = () => {
               </select>
             </div>
             <div>
-              <button className="marketprice-btn" name={wait?"Please Wait...":"Submit"} disabled={wait} type="submit">
+              <button className="marketprice-btn" value={wait?"Please Wait...":"Submit"} disabled={wait} type="submit">
                 
               </button>
             </div>
