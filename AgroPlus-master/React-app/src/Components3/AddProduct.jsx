@@ -51,6 +51,7 @@ function AddProduct() {
                 .then(data => {
                     if (data.secure_url) {
                         formData.append(`pimage[${index + 1}]`, data.secure_url);
+                        console.log(data.secure_url);
                     } else {
                         throw new Error('Image upload failed');
                     }
@@ -68,6 +69,7 @@ function AddProduct() {
                     return axios.post(url, formData);
                 })
                 .then((res) => {
+                    console.log(res.data)
                     toast.success("Product Added Successfully! ", {
                         position: "top-center",
                         autoClose: 1000,
