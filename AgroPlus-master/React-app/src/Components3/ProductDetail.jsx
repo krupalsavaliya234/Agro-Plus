@@ -15,7 +15,7 @@ function ProductDetail() {
   const [msg, setMsg] = useState("");
   const [msgs, setMsgs] = useState([]);
   const [user, setUser] = useState(null); // Initialize as null
-  const [displayDetails, setDisplayDetails] = useState(true);
+  const [displayDetails, setDisplayDetails] = useState(false); // Default to false
   const { productId } = useParams();
 
   useEffect(() => {
@@ -61,7 +61,7 @@ function ProductDetail() {
     // Toggle display of contact details
     setDisplayDetails(!displayDetails);
 
-    if (!displayDetails) { // Ensure displayDetails is false before fetching user details
+    if (!displayDetails) { // Fetch user details only if displayDetails is false
       try {
         const url = `${API_URL}/get-user/${addedBy}`;
         const res = await axios.get(url);
@@ -99,23 +99,21 @@ function ProductDetail() {
       <div className="main1">
         <div className="part1">
           {product && (
-            <div className="d-flex justify--nt-between flex-wrap m-5">
+            <div className="d-flex justify-content-between flex-wrap m-5">
               <div className="container1">
                 <h2>
-                  {" "}
-                  <img className="product-img" src="/Images/file.png" /> Product
-                  Details{" "}
+                  <img className="product-img" src="/Images/file.png" alt="" /> 
+                  Product Details
                 </h2>
 
                 <Carousel
-                  autoPlay={true}
-                  animation="slide"
+                  autoPlay
                   showStatus={false}
                   showThumbs={false}
                   interval={3000}
-                  infiniteLoop={true}
-                  stopOnHover={true}
-                  navButtonsAlwaysVisible={true}
+                  infiniteLoop
+                  stopOnHover
+                  navButtonsAlwaysVisible
                   navButtonsProps={{
                     style: {
                       backgroundColor: "#fff",
@@ -124,7 +122,8 @@ function ProductDetail() {
                       marginTop: -22,
                       height: "104px",
                     },
-                  }}>
+                  }}
+                >
                   {product.images.map((item, index) => (
                     <div key={index}>
                       <img
@@ -142,20 +141,18 @@ function ProductDetail() {
                   {product.pname} | <span className="cat">{product.category}</span>
                 </p>
                 <p className="product-desc m-2 mt-4">{product.pdesc}</p>
-                {
-                  product.addedBy && (
-                    <button
-                      className="btn mt-4"
-                      onClick={() => handleContact(product.addedBy)}
-                    >
-                      <div className="contact-btn">
-                        <img className="contact-img" src="/Images/contact-us.png" />
-                        Contact Details
-                      </div>
-                    </button>
-                  )
-                }
-                {displayDetails && user && ( // Render contact details if displayDetails is true and user data is available
+                {product.addedBy && (
+                  <button
+                    className="btn mt-4"
+                    onClick={() => handleContact(product.addedBy)}
+                  >
+                    <div className="contact-btn">
+                      <img className="contact-img" src="/Images/contact-us.png" alt="" />
+                      Contact Details
+                    </div>
+                  </button>
+                )}
+                {displayDetails && user && (
                   <div className="contact-details1">
                     {user.username && <h6>{user.username}</h6>}
                     {user.mobile && <h6>{user.mobile}</h6>}
