@@ -33,7 +33,29 @@ const MarketPrice = () => {
       setDistrict(data1[0].market);
       setRow(false);
       setWait(false);
-      toast.success("Market prices fetched successfully!"); // Success toast
+      toast('Market prices fetched successfully!', {
+        duration: 4000,
+        position: 'top-center',
+      
+        // Styling
+        style: {},
+        className: '',
+      
+        // Custom Icon
+        icon: '👏',
+      
+        // Change colors of success/error/loading icon
+        iconTheme: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+      
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
     } catch (error) {
       console.error("Error fetching data:", error);
       toast.error("Failed to fetch market prices. Please try again."); // Error toast
