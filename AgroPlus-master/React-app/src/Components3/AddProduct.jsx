@@ -39,6 +39,26 @@ function AddProduct() {
             });
             formData.append('userId', localStorage.getItem('userId'));
 
+            const data = new FormData();
+            data.append("file", image);
+            data.append("upload_preset", "kdfugyao");
+        
+        
+            // for video https://api.cloudinary.com/v1_1/dmx0qh9f3/video/upload/
+            // for image https://api.cloudinary.com/v1_1/dmx0qh9f3/image/upload/
+            fetch("https://api.cloudinary.com/v1_1/dmx0qh9f3/image/upload/", {
+              method: "post",
+              body: data,
+            })  
+            .then((data) => {
+                console.log("Upload successful:", data);
+                // Handle success here
+              })
+              .catch((err) => {
+                console.error("Error uploading image:", err.message);
+                // Handle error here
+              });
+
             const url = API_URL + '/add-product';
             axios.post(url, formData)
                 .then((res) => {
