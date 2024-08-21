@@ -139,7 +139,7 @@ function ProductDetail() {
                         className="p-image"
                         width="400px"
                         height="auto"
-                        src={`${API_URL}/uploads/${item}`}
+                        src={`${API_URL}/${item}`}
                         alt={`Product Image ${index}`}
                       />
                     </div>
