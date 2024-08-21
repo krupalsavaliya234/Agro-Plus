@@ -15,7 +15,7 @@ function ProductDetail() {
   const [msg, setMsg] = useState("");
   const [msgs, setMsgs] = useState([]);
   const [user, setUser] = useState(null); // Initialize as null
-  const [displayDetails, setDisplayDetails] = useState(false);
+  const [displayDetails, setDisplayDetails] = useState(true);
   const { productId } = useParams();
 
   useEffect(() => {
