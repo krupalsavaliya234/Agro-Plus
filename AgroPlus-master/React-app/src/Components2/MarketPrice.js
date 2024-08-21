@@ -9,7 +9,7 @@ const MarketPrice = () => {
   const [date, setDate] = useState("");
   const [district, setDistrict] = useState("");
   const [row, setRow] = useState(true);
-
+  const [wait,setWait]=useState(false);
   function handleChange(e) {
     console.log(`Option selected: ${e.target.value}`);
     setValue(e.target.value);
@@ -18,7 +18,9 @@ const MarketPrice = () => {
   // Get Data from user through select and option
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setWait(true)
     try {
+
       const response = await axios.get(
         "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&filters%5Bstate%5D=Gujarat&filters%5Bdistrict%5D=" +
           value
@@ -30,6 +32,7 @@ const MarketPrice = () => {
       setDate(data1[0].arrival_date);
       setDistrict(data1[0].market);
       setRow(false);
+      setWait(false);
       toast.success("Market prices fetched successfully!"); // Success toast
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -57,8 +60,8 @@ const MarketPrice = () => {
               </select>
             </div>
             <div>
-              <button className="marketprice-btn" type="submit">
-                Submit
+              <button className="marketprice-btn" name={wait?"Please Wait...":"Submit"} type="submit">
+                
               </button>
             </div>
           </div>
