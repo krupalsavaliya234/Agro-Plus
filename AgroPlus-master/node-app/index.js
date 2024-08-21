@@ -55,13 +55,13 @@ app.post("/like-product", userController.likeProducts);
 // app.post('/dislike-product', userController.dislikeProducts)
 app.post(
   "/add-product",
-  upload.fields([
-    { name: "pimage[1]" },
-    { name: "pimage[2]" },
-    { name: "pimage[3]" },
-    { name: "pimage[4]" },
-    { name: "pimage[5]" },
-  ]),
+  // upload.fields([
+  //   { name: "pimage[1]" },
+  //   { name: "pimage[2]" },
+  //   { name: "pimage[3]" },
+  //   { name: "pimage[4]" },
+  //   { name: "pimage[5]" },
+  // ]),
   productController.addProduct
 );
 app.patch(
