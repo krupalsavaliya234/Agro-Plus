@@ -59,6 +59,7 @@ module.exports.addProduct = async (req, res) => {
   try {
     const images = [];
     const { pname, plat, plong, pdesc, price, category, userId } = req.body;
+    console.log(req.body);
     Object.keys(req.files).forEach((key) => {
       images.push(req.files[key][0].path);
     });
