@@ -90,7 +90,7 @@ const AboutUs = () => (
         <div className="aboutus-responsive-cell-block aboutus-wk-desk-3 aboutus-wk-ipadp-3 aboutus-wk-tab-6 aboutus-wk-mobile-12 aboutus-card-container">
           <div className="aboutus-card">
             <div className="aboutus-team-image-wrapper">
-              <img className="aboutus-team-member-image" src="./Images/krupal.jpg" alt="Krupal Savaliya" />
+              <img className="aboutus-team-member-image" src="./Images/krupal.png" alt="Krupal Savaliya" />
             </div>
             <p className="aboutus-text-blk aboutus-name">
               Krupal Savaliya
@@ -99,7 +99,7 @@ const AboutUs = () => (
               Full Stack Developer
             </p>
             <p className="aboutus-text-blk aboutus-feature-text">
-              MERN Stack | Frontend Developer | NodeJs | Database
+              MERN Stack | Backend Developer  | Database
             </p>
             <div className="aboutus-social-icons">
               <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvrcHvvhslgKJRmNQsRXmHzDZSdkTLGpgNJldnKZBDBFbcSPGtjMZxhbVTCZQMKcrVbJwLL" target="_blank" rel="noopener noreferrer">
