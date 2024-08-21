@@ -72,19 +72,27 @@ module.exports.myProfileById = (req, res) => {
 
 module.exports.getUserById = (req, res) => {
     const _userId = req.params.uId;
+
     Users.findOne({ _id: _userId })
         .then((result) => {
-            res.send({
-                message: 'success.', user: {
-                    email: result.email,
-                    mobile: result.mobile,
-                    username: result.username
-                }
-            })
+            if (result) {
+                res.send({
+                    message: 'Success.',
+                    user: {
+                        email: result.email,
+                        mobile: result.mobile,
+                        username: result.username
+                    }
+                });
+            } else {
+                res.status(404).send({ message: 'User not found.' });
+            }
         })
-        .catch(() => {
-            res.send({ message: 'server ofrerr' })
-        })
+        .catch((err) => {
+            console.error('Error fetching user:', err);
+            res.status(500).send({ message: 'Server error occurred.' });
+        });
+    
 }
 
 
