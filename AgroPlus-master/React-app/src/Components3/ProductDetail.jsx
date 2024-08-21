@@ -140,7 +140,7 @@ function ProductDetail() {
                         width="400px"
                         height="auto"
                         src={`${API_URL}/${item}`}
-                        alt={`Product Image ${index}`}
+                        alt={` Image-${index}`}
                       />
                     </div>
                   ))}
