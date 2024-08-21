@@ -163,9 +163,9 @@ function ProductDetail() {
                 )}
                 {displayDetails && user && (
                   <div className="contact-details1">
-                    {user.username && <h6>{user.username}</h6>}
-                    {user.mobile && <h6>{user.mobile}</h6>}
-                    {user.email && <h6>{user.email}</h6>}
+                     Owner name:  {user.username && <h6>{user.username}</h6>}
+                    Owner number: {user.mobile && <h6>{user.mobile}</h6>}
+                     Owner email: {user.email && <h6>{user.email}</h6>}
                   </div>
                 )}
               </div>
