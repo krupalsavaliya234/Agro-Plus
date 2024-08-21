@@ -96,6 +96,7 @@ body {
 .contact-details1 {
    width: 400px;
    margin-top: 30px;
+   padding: 30px;
    height: auto;
    background-color:rgb(240, 239, 239);
    /* display: none; */
