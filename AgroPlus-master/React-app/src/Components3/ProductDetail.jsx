@@ -63,16 +63,26 @@ function ProductDetail() {
 
     if (displayDetails) { // Fetch user details only if displayDetails is false
       try {
+        // Construct the URL
         const url = `${API_URL}/get-user/${addedBy}`;
-        console.log(url)  
+        console.log("Fetching user data from:", url);
+    
+        // Make the API request
         const res = await axios.get(url);
+    
+        // Extract user data from the response
         const userData = res.data.user;
         if (userData) {
+          // Update the state with the user data
           setUser(userData);
-          console.log("User data:", userData);
+          console.log("User data retrieved successfully:", userData);
+        } else {
+          console.error("No user data found in response.");
         }
       } catch (err) {
-        alert("Server error occurred.");
+        // Log the error to the console and display an alert
+        console.error("Error fetching user data:", err);
+        alert("Server error occurred while fetching user data.");
       }
     }
   };
