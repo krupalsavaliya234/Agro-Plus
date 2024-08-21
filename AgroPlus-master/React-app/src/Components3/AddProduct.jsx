@@ -26,6 +26,7 @@ function AddProduct() {
 
     const handleApi = (e) => {
         e.preventDefault();
+    
         navigator.geolocation.getCurrentPosition((position) => {
             const formData = new FormData();
             formData.append('plat', position.coords.latitude);
@@ -34,33 +35,38 @@ function AddProduct() {
             formData.append('pdesc', pdesc);
             formData.append('price', price);
             formData.append('category', category);
-            pimages.forEach((image, index) => {
-                formData.append(`pimage[${index + 1}]`, image);
-            });
             formData.append('userId', localStorage.getItem('userId'));
-
-            const data = new FormData();
-            data.append("file", image);
-            data.append("upload_preset", "kdfugyao");
-        
-        
-            // for video https://api.cloudinary.com/v1_1/dmx0qh9f3/video/upload/
-            // for image https://api.cloudinary.com/v1_1/dmx0qh9f3/image/upload/
-            fetch("https://api.cloudinary.com/v1_1/dmx0qh9f3/image/upload/", {
-              method: "post",
-              body: data,
-            })  
-            .then((data) => {
-                console.log("Upload successful:", data);
-                // Handle success here
-              })
-              .catch((err) => {
-                console.error("Error uploading image:", err.message);
-                // Handle error here
-              });
-
-            const url = API_URL + '/add-product';
-            axios.post(url, formData)
+    
+            // Upload each image to Cloudinary and get the URLs
+            const imageUploadPromises = pimages.map((image, index) => {
+                const data = new FormData();
+                data.append("file", image);
+                data.append("upload_preset", "kdfugyao");
+    
+                return fetch("https://api.cloudinary.com/v1_1/dmx0qh9f3/image/upload/", {
+                    method: "post",
+                    body: data,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.secure_url) {
+                        formData.append(`pimage[${index + 1}]`, data.secure_url);
+                    } else {
+                        throw new Error('Image upload failed');
+                    }
+                })
+                .catch((err) => {
+                    console.error("Error uploading image:", err.message);
+                    throw err; // Re-throw to handle it later
+                });
+            });
+    
+            // Wait for all images to be uploaded
+            Promise.all(imageUploadPromises)
+                .then(() => {
+                    const url = API_URL + '/add-product';
+                    return axios.post(url, formData);
+                })
                 .then((res) => {
                     toast.success("Product Added Successfully! ", {
                         position: "top-center",
@@ -72,9 +78,13 @@ function AddProduct() {
                 })
                 .catch((err) => {
                     toast.error('Server Error');
+                    console.error(err);
                 });
+        }, (error) => {
+            toast.error('Geolocation error: ' + error.message);
         });
     };
+    
 
     return (
         <div>
