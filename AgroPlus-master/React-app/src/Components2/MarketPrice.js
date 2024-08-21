@@ -54,6 +54,8 @@ const MarketPrice = () => {
                 <option value="Amreli">Amreli</option>
                 <option value="Dahod">Dahod</option>
                 <option value="Jamnagar">Jamnagar</option>
+                <option value="Jetpur">Jetpur</option>
+
               </select>
             </div>
             <div>
