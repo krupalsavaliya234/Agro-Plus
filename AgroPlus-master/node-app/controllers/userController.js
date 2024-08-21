@@ -83,7 +83,7 @@ module.exports.getUserById = (req, res) => {
             })
         })
         .catch(() => {
-            res.send({ message: 'server err' })
+            res.send({ message: 'server ofrerr' })
         })
 }
 
