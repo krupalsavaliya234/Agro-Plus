@@ -61,9 +61,10 @@ function ProductDetail() {
     // Toggle display of contact details
     setDisplayDetails(!displayDetails);
 
-    if (!displayDetails) { // Fetch user details only if displayDetails is false
+    if (displayDetails) { // Fetch user details only if displayDetails is false
       try {
         const url = `${API_URL}/get-user/${addedBy}`;
+        console.log(url)  
         const res = await axios.get(url);
         const userData = res.data.user;
         if (userData) {
