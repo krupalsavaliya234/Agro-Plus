@@ -94,9 +94,9 @@ body {
 }
 
 .contact-details1 {
-   width: 10px;
+   width: 200px;
    height: auto;
-   background-color: red;
+   background-color:rgb(240, 239, 239);
    /* display: none; */
 }
 
