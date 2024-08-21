@@ -205,7 +205,7 @@ function Home() {
                             height="200px"
                             className="useradded-img1"
                             src={API_URL + "/uploads/" + image}
-                            alt={item.pname}
+                            alt={"brocode"}
                           />
                         </div>
                       ))}
