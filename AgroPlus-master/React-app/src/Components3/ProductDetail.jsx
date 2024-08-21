@@ -149,7 +149,7 @@ function ProductDetail() {
                       onClick={() => handleContact(product.addedBy)}
                     >
                       <div className="contact-btn">
-                        <img className="contact-img" src="/images/contact-us.png" />
+                        <img className="contact-img" src="/Images/contact-us.png" />
                         Contact Details
                       </div>
                     </button>
