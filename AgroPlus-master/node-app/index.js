@@ -28,23 +28,23 @@ const app = express();
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "*", // Adjust this to restrict CORS if necessary
+    origin: "*",
   },
 });
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cors({
-  origin: 'https://agroplus-rust.vercel.app', // Replace with your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Specify the allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
-  credentials: true // Enable this if you are sending cookies or other credentials
+  origin: 'https://agroplus-rust.vercel.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+  credentials: true 
 }));
 
 // app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const port = process.env.PORT || 4000; // Use environment variable for port
+const port = process.env.PORT || 4000;
 
 app.get("/", (req, res) => {
   res.send("hello...");
