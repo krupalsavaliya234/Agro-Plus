@@ -7,17 +7,18 @@ import { Toaster,toast } from "react-hot-toast";
 const GovernmentPolicy = () => {
   const navigate=useNavigate();
   useEffect(()=>{
-    toast.error("Please login!    🙇", {
-      style: {
-        width: "300px",
-      },
-    });
+   
     
+    if (!localStorage.getItem("token")) {
+      toast.error("Please login! 🙇", {
+        style: {
+          width: "300px",
+        },
+      });
     setTimeout(() => {
-     if (!localStorage.getItem("token")) {
        navigate("/login");
-     }  
-    }, 5000); 
+      }, 5000); 
+    }  
     
    })
   const [expandedItems, setExpandedItems] = useState({});

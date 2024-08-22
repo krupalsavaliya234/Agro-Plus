@@ -25,13 +25,16 @@ function Home() {
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-    toast.error("Please login!    🙇", {
-      style: {
-        width: "300px",
-      },
-    });
+  
     if (!localStorage.getItem("token")) {
-      navigate("/login");
+      toast.error("Please login!    🙇", {
+        style: {
+          width: "300px",
+        },
+      });
+     setTimeout(() => {
+      navigate("/login")
+     }, 5000);
     } else {
       fetchProducts();
     }

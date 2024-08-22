@@ -18,17 +18,18 @@ const MarketPrice = () => {
   }
 
   useEffect(()=>{
-    toast.error("Please login! 🙇", {
-      style: {
-        width: "300px",
-      },
-    });
+   
     
-   setTimeout(() => {
     if (!localStorage.getItem("token")) {
+      toast.error("Please login! 🙇", {
+        style: {
+          width: "300px",
+        },
+      });
+   setTimeout(() => {
       navigate("/login");
-    }  
-   }, 5000); 
+    }, 5000); 
+  }  
    
   })
   // Get Data from user through select and option
