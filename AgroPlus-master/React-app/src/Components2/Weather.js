@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import "./weather.css";
-
+import { useNavigate } from "react-router-dom";
+import { Toaster,toast } from "react-hot-toast";
 const Weather = () => {
+  const navigate=useNavigate();
   const [weatherData, setWeatherData] = useState({
     Cloud: "",
     Temperature: "",
@@ -9,6 +11,21 @@ const Weather = () => {
     Wind: "",
     error: ""
   });
+  useEffect(()=>{
+    toast.error("Please login! 🙇", {
+      style: {
+        width: "300px",
+      },
+    });
+    
+    setTimeout(() => {
+      
+     if (!localStorage.getItem("token")) {
+       navigate("/login");
+     }  
+    }, 5000); 
+    
+   })
 
   const showWeather = (event) => {
     event.preventDefault();
@@ -59,6 +76,7 @@ const Weather = () => {
           <p className="error">{weatherData.error}</p>
         </div>
       </div>
+      <Toaster/>
     </div>
   );
 };

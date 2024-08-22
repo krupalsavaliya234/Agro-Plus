@@ -5,13 +5,30 @@ import { useParams } from "react-router-dom";
 import API_URL from "../constants";
 import io from "socket.io-client";
 import "./groupchat.css";
+import { Toaster,toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 let socket;
 
 function Groupchat() {
   const [msg, setMsg] = useState("");
   const [msgs, setMsgs] = useState([]);
   const { productId } = useParams();
-
+  const navigate=useNavigate();
+  useEffect(()=>{
+    toast.error("Please login! 🙇", {
+      style: {
+        width: "300px",
+      },
+    });
+    
+    setTimeout(() => {
+      
+     if (!localStorage.getItem("token")) {
+       navigate("/login");
+     }  
+    }, 5000); 
+    
+   })
   useEffect(() => {
     socket = io(API_URL);
 
@@ -92,7 +109,7 @@ function Groupchat() {
           SEND
         </button>
       </div>
-
+<Toaster/>
     </div>
   );
 }

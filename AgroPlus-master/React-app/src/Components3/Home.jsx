@@ -9,6 +9,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./styles/home.css";
 import "./styles/header.css";
+// import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DotLoader from "react-spinners/ClipLoader";
@@ -24,6 +25,11 @@ function Home() {
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {
+    toast.error("Please login!    🙇", {
+      style: {
+        width: "300px",
+      },
+    });
     if (!localStorage.getItem("token")) {
       navigate("/login");
     } else {

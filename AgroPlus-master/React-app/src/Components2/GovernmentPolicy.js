@@ -1,8 +1,25 @@
 import React, { useState } from "react";
 import data from "./policies";
 import "./policy.css";
-
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Toaster,toast } from "react-hot-toast";
 const GovernmentPolicy = () => {
+  const navigate=useNavigate();
+  useEffect(()=>{
+    toast.error("Please login!    🙇", {
+      style: {
+        width: "300px",
+      },
+    });
+    
+    setTimeout(() => {
+     if (!localStorage.getItem("token")) {
+       navigate("/login");
+     }  
+    }, 5000); 
+    
+   })
   const [expandedItems, setExpandedItems] = useState({});
 
   const handleReadMoreClick = (index) => {
@@ -73,6 +90,7 @@ const GovernmentPolicy = () => {
           ))}
         </tbody>
       </table>
+      <Toaster/>
     </div>
   );
 };

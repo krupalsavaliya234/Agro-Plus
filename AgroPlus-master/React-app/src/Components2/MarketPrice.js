@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast"; // Import react-hot-toast
 import "./market_price.css";
+import { useNavigate } from "react-router-dom";
 
 const MarketPrice = () => {
+  const navigate=useNavigate();
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
   const [date, setDate] = useState("");
@@ -15,6 +17,20 @@ const MarketPrice = () => {
     setValue(e.target.value);
   }
 
+  useEffect(()=>{
+    toast.error("Please login! 🙇", {
+      style: {
+        width: "300px",
+      },
+    });
+    
+   setTimeout(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }  
+   }, 5000); 
+   
+  })
   // Get Data from user through select and option
   const handleSubmit = async (e) => {
     e.preventDefault();
