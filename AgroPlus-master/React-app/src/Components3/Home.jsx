@@ -21,7 +21,7 @@ function Home() {
   const [issearch, setIssearch] = useState(false);
   const [readMoreId, setReadMoreId] = useState(null);
   const [loder,setloder]=useState(false);
-  if(loder)
+  if(loder==false)
   {
     <Audio
   height="80"
@@ -32,7 +32,17 @@ function Home() {
   wrapperStyle
   wrapperClass
 />
+
   }
+  <Audio
+  height="80"
+  width="80"
+  radius="9"
+  color="green"
+  ariaLabel="loading"
+  wrapperStyle
+  wrapperClass
+/>
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
