@@ -328,7 +328,7 @@ function Home() {
         )}
         <ToastContainer />
       </div>
-      {loder}&& {<div className="spinner-container">
+      {loder && <div className="spinner-container">
                   <DotLoader color="#000" loading={loder} size={50} />
                 </div>}
     </div>
