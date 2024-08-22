@@ -3,16 +3,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API_URL from "../constants";
 import CategoriesList from "./CategoriesList";
-// import { ToastContainer, toast } from "react-toastify";
 import { Toaster, toast } from "react-hot-toast";
-import "react-toastify/dist/ReactToastify.css";
-// import Slider from "react-slick";
-import LoginHeader from "./LoginHeader";
-import "./styles/updateproduct.css";
-import Header from "./Header";
 import ClipLoader from "react-spinners/ClipLoader";
+import Header from "./Header";
+import "./styles/updateproduct.css";
 
 const UpdateProduct = () => {
+  const { id } = useParams();
   const [data, setData] = useState({
     product: {
       pname: "",
@@ -22,51 +19,21 @@ const UpdateProduct = () => {
       images: [],
     },
   });
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-  };
-  const { id } = useParams();
   const [limit, setLimit] = useState(true);
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [length1, setLength1] = useState();
+  const [length1, setLength1] = useState(0);
   const [pimages, setPimages] = useState([]);
-  const [wait, setwait] = useState(false);
+  const [wait, setWait] = useState(false);
 
-
-  
-  const handleDelete = async (id, index) => {
-    try {
-      const res = await axios.patch(`${API_URL}/edit-image/${index}/${id}`);
-      setwait(false);
-      toast.success("Image Deleted successfully!", {
-        position: "top-center",
-      });
-      setTimeout(() => {
-        fetchData();
-      }, 2000);
-    } catch (error) {
-      setwait(false);
-      console.error("Error updating product:", error);
-    }
-  };
-
+  // Fetch product data based on the product ID
   const fetchData = async () => {
     try {
       const res = await axios.get(`${API_URL}/get-product/${id}`);
       setData(res.data);
       setLength1(res.data.product.images.length);
 
-      if (res.data.product.images.length < 6) {
-        setLimit(true);
-      } else {
-        alert("You have already uploaded 5 images");
-        setLimit(false);
-      }
+      // Determine if more images can be uploaded
+      setLimit(res.data.product.images.length < 5);
     } catch (error) {
       console.error("Error fetching product:", error);
     }
@@ -76,6 +43,7 @@ const UpdateProduct = () => {
     fetchData();
   }, [id]);
 
+  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prevData) => ({
@@ -87,14 +55,46 @@ const UpdateProduct = () => {
     }));
   };
 
+  // Handle image deletion
+  const handleDelete = async (id, index) => {
+    try {
+      await axios.patch(`${API_URL}/edit-image/${index}/${id}`);
+      setWait(false);
+      toast.success("Image deleted successfully!", { position: "top-center" });
+      fetchData(); // Fetch updated product data
+    } catch (error) {
+      setWait(false);
+      console.error("Error deleting image:", error);
+      toast.error("Failed to delete image.");
+    }
+  };
+
+  // Handle file selection
+  const handleFileChange = (event) => {
+    const files = event.target.files;
+
+    // Ensure that no more than the remaining number of allowed files are selected
+    if (files.length <= 5 - length1) {
+      setSelectedFiles(Array.from(files));
+      setPimages(Array.from(files));
+    } else {
+      alert(`You can only select up to ${5 - length1} files.`);
+      event.target.value = null;
+    }
+  };
+
+  // Handle form submission
   const handleClick = async (e) => {
     e.preventDefault();
-    setwait(true);
+    setWait(true);
+
     const formData = new FormData();
     formData.append("pname", data.product.pname);
     formData.append("pdesc", data.product.pdesc);
     formData.append("price", data.product.price);
     formData.append("category", data.product.category);
+
+    // Upload selected images to Cloudinary
     const imageUploadPromises = pimages.map((image, index) => {
       const data = new FormData();
       data.append("file", image);
@@ -108,111 +108,91 @@ const UpdateProduct = () => {
         .then((data) => {
           if (data.secure_url) {
             formData.append(`pimage[${index + 1}]`, data.secure_url);
-            console.log(data.secure_url);
           } else {
             throw new Error("Image upload failed");
           }
         })
         .catch((err) => {
           console.error("Error uploading image:", err.message);
-          throw err; // Re-throw to handle it later
+          throw err;
         });
     });
-    await Promise.all(imageUploadPromises)
 
-      .then(() => {
+    // Wait for all images to be uploaded
+    await Promise.all(imageUploadPromises)
+      .then(async () => {
         try {
-          const res = axios.patch(`${API_URL}/edit-product/${id}`, formData);
-          setwait(false);
-          toast.success("Item Updated successfully! 🎉🎉", {
+          await axios.patch(`${API_URL}/edit-product/${id}`, formData);
+          setWait(false);
+          toast.success("Item updated successfully! 🎉", {
             position: "top-center",
           });
-          setTimeout(() => {
-            fetchData();
-          }, 2000);
-          if (res.data) {
-          }
+          fetchData();
         } catch (error) {
           console.error("Error updating product:", error);
+          toast.error("Failed to update product.");
         }
       })
       .catch((err) => {
+        setWait(false);
+        console.error("Server Error:", err);
         toast.error("Server Error");
-        console.error(err);
       });
   };
-
-  const handleFileChange = (event) => {
-    const files = event.target.files;
-
-    if (files.length <= 5 - length1) {
-      setSelectedFiles(Array.from(files));
-    } else {
-      alert(`You can only select up to ${5 - length1} files.`);
-      event.target.value = null;
-    }
-
-    const files1 = Array.from(event.target.files);
-    setPimages(files1);
-  };
-
 
   return (
     <div className="updateproduct-header">
       <Header />
-
-      <div />
       <div className="updateform">
         <h2>Update Product</h2>
         <form className="update-form" onSubmit={handleClick}>
           {data.product && (
             <>
-              <br />
               <label>
                 Product Name <span className="add-span">*</span>
               </label>
-              <br />
               <input
                 className="userinput"
                 type="text"
                 name="pname"
                 value={data.product.pname}
                 onChange={handleChange}
+                required
               />
-              <br />
+
               <label>
                 Product Description <span className="add-span">*</span>
               </label>
-              <br />
               <input
                 className="userinput"
                 type="text"
                 name="pdesc"
                 value={data.product.pdesc}
                 onChange={handleChange}
+                required
               />
-              <br />
+
               <label>
                 Product Price <span className="add-span">*</span>
               </label>
-              <br />
               <input
                 className="userinput"
                 type="text"
                 name="price"
                 value={data.product.price}
                 onChange={handleChange}
+                required
               />
-              <br />
+
               <label>
                 Product Category <span className="add-span">*</span>
               </label>
-              <br />
               <select
                 className="userinput"
                 name="category"
                 value={data.product.category}
                 onChange={handleChange}
+                required
               >
                 {CategoriesList.map((category, index) => (
                   <option key={index} value={category}>
@@ -220,9 +200,9 @@ const UpdateProduct = () => {
                   </option>
                 ))}
               </select>
-              <br />
+
               {limit && (
-                <div>
+                <>
                   <label>
                     Product Image{" "}
                     <span className="add-span">
@@ -236,12 +216,10 @@ const UpdateProduct = () => {
                     multiple
                     onChange={handleFileChange}
                   />
-                </div>
+                </>
               )}
-              
-              <br />
-              <Toaster />
-              <button className="update-btn" disabled={wait}>
+
+              <button className="update-btn" type="submit" disabled={wait}>
                 SUBMIT
               </button>
               {wait && (
@@ -249,31 +227,30 @@ const UpdateProduct = () => {
                   <ClipLoader color="#000" loading={wait} size={50} />
                 </div>
               )}
+
+              <Toaster />
             </>
           )}
         </form>
-        <label>Uploaded Images</label>
-              <br />
 
-              <div className="image-container">
-                {data.product.images.map((item, index) => (
-                  <div className="image-item" key={index}>
-                    <div className="image-i">
-                      <img
-                        src={item}
-                        className="existion-image"
-                        alt={`Image ${index}`}
-                      />
-                      <button
-                        className="update-btn1"
-                        onClick={() => handleDelete(id, index)}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        <label>Uploaded Images</label>
+        <div className="image-container">
+          {data.product.images.map((item, index) => (
+            <div className="image-item" key={index}>
+              <img
+                src={item}
+                className="existing-image"
+                alt={`Image ${index + 1}`}
+              />
+              <button
+                className="update-btn1"
+                onClick={() => handleDelete(id, index)}
+              >
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
