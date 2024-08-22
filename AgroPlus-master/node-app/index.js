@@ -33,14 +33,14 @@ const io = new Server(httpServer, {
 });
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-// app.use(cors({
-//   origin: 'https://agroplus-rust.vercel.app', // Replace with your frontend URL
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Specify the allowed HTTP methods
-//   allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
-//   credentials: true // Enable this if you are sending cookies or other credentials
-// }));
+app.use(cors({
+  origin: 'https://agroplus-rust.vercel.app', // Replace with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Specify the allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
+  credentials: true // Enable this if you are sending cookies or other credentials
+}));
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
