@@ -50,7 +50,6 @@ app.get("/", (req, res) => {
   res.send("hello...");
 });
 
-// Routes
 app.get("/search", productController.search);
 app.post("/like-product", userController.likeProducts);
 // app.post('/dislike-product', userController.dislikeProducts)
@@ -60,10 +59,6 @@ app.post(
   productController.addProduct
 );
 
-// app.post('/add-product', upload.any(), (req, res) => {
-//   console.log(req.body); // This should show the form data
-//   // Handle the rest of your logic here
-// });
 app.patch(
   "/edit-product/:id",
   upload.any(),
@@ -71,7 +66,6 @@ app.patch(
 );
 app.get("/get-products", productController.getProducts);
 app.patch("/edit-image/:image/:id", productController.deleteImage);
-// app.post('/delete-product', productController.deleteProduct)
 app.get("/get-product/:pId", productController.getProductsById);
 app.post("/liked-products", userController.likedProducts);
 app.post("/my-products", productController.myProducts);
