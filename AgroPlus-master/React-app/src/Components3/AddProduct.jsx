@@ -80,7 +80,7 @@ function AddProduct() {
                             setTimeout(() => {
                                 
                                 navigate("/home") 
-                            }, 1700);
+                            }, 2000);
 
                         })
                 })
