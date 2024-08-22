@@ -175,15 +175,28 @@ module.exports.myProducts = async (req, res) => {
 };
 
 module.exports.deleteImage = async (req, res) => {
-  const { image, id } = req.params;
-  const document = await Products.findOne({ _id: id });
-  document.images.splice(image, 1);
-  await Products.updateOne(
-    { _id: document._id },
-    { $set: { images: document.images } }
-  );
-  return res.send("Done");
+  try {
+    const { image, id } = req.params;
+    const document = await Products.findById(id);
+
+    if (!document) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    if (image < 0 || image >= document.images.length) {
+      return res.status(400).json({ message: "Invalid image index" });
+    }
+
+    document.images.splice(image, 1);
+
+    await document.save();
+
+    return res.status(200).json({ message: "Image deleted successfully", images: document.images });
+  } catch (error) {
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
 };
+
 
 // module.exports.deleteProduct = async (req, res) => {
 //   try {

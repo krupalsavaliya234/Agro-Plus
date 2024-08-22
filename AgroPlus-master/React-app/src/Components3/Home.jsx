@@ -11,7 +11,7 @@ import "./styles/home.css";
 import "./styles/header.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { Audio } from 'react-loader-spinner'
 function Home() {
   const navigate = useNavigate();
   const [liked1, setLiked] = useState(false);
@@ -20,7 +20,19 @@ function Home() {
   const [search, setSearch] = useState("");
   const [issearch, setIssearch] = useState(false);
   const [readMoreId, setReadMoreId] = useState(null);
-
+  const [loder,setloder]=useState(false);
+  if(loder)
+  {
+    <Audio
+  height="80"
+  width="80"
+  radius="9"
+  color="green"
+  ariaLabel="loading"
+  wrapperStyle
+  wrapperClass
+/>
+  }
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
@@ -28,11 +40,13 @@ function Home() {
   }, []);
 
   const getProduct = () => {
+    setloder(true);
     const url = API_URL + "/get-products";
     axios
       .get(url)
       .then((res) => {
         if (res.data.products) {
+          setloder(false);
           setProducts(res.data.products);
         }
       })

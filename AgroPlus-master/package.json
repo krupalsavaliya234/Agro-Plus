@@ -6,6 +6,7 @@
     "https-browserify": "^1.0.0",
     "init": "^0.1.2",
     "node": "^18.20.1",
+    "react-loader-spinner": "^6.1.6",
     "react-toastify": "^10.0.5",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
