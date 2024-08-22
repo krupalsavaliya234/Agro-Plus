@@ -32,7 +32,6 @@ function Home() {
   }, []);
 
   const getProduct = () => {
-    setloder(true);
     const url = API_URL + "/get-products";
     axios
       .get(url)
@@ -53,6 +52,8 @@ function Home() {
   };
 
   useEffect(() => {
+    setloder(true);
+
     getProduct();
   }, []);
 
@@ -322,13 +323,13 @@ function Home() {
                     </p>
                   </div>
                 );
-              })}
+              })} 
           </div>
         )}
         <ToastContainer />
       </div>
       {loder}&& {<div className="spinner-container">
-                  <DotLoader color="#000" loading={wait} size={50} />
+                  <DotLoader color="#000" loading={loder} size={50} />
                 </div>}
     </div>
   );
