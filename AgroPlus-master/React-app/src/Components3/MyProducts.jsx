@@ -8,7 +8,7 @@ import "./styles/myproduct.css";
 import API_URL from "../constants";
 
 import { toast, Toaster } from "react-hot-toast";
-import "react-hot-toast/dist/index.css";
+// import "react-hot-toast/dist/index.css";
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -23,7 +23,14 @@ const MyProducts = () => {
   const [categorizedProducts, setCategorizedProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true); // Add loading state
-
+  const toastOptions = {
+    position: "top-center",
+    duration: 2000,
+    style: {
+      marginTop:"150px",
+      width: "500px",
+    },
+  };
   const fetchData = async () => {
     try {
       setLoading(true); // Start loading
@@ -73,7 +80,9 @@ const MyProducts = () => {
       if (response.data.message) {
         toast.success("Image liked successfully!", {
           position: "top-center",
+          ...toastOptions
         });
+
       }
     } catch (error) {
       toast.error("Server Error.");
@@ -96,21 +105,22 @@ const MyProducts = () => {
         res.data.product
       );
 
-      toast.success("Product sold!", {
-        position: "top-right",
-        duration: 1500,
-        onClose: () => {
-          fetchData();
-        },
+      toast.success("Product deleted sucessfully! 🎉", {
+       ...toastOptions,
+      
       });
+      setTimeout(() => {
+        // fetchData()
+        navigate("/home");
+      }, 2000);
     } catch (error) {
       if (error.response && error.response.status === 404) {
         toast.error("Product not found!", {
-          position: "top-right",
+          ...toastOptions
         });
       } else {
         toast.error("Error deleting product!", {
-          position: "top-right",
+          ...toastOptions
         });
       }
     }
@@ -195,7 +205,7 @@ const MyProducts = () => {
                             height="200px"
                             padding="0px"
                             className="useradded-img3"
-                            src={API_URL + "/" + image}
+                            src={image}
                             alt={item.pname}
                           />
                         </div>

@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import categories from "./CategoriesList";
 import API_URL from "../constants";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
+import { Toaster,toast } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
-import "./styles/addproduct.css"
+import ClipLoader from "react-spinners/ClipLoader";
+import "./styles/addproduct.css";
+
 function AddProduct() {
     const navigate = useNavigate();
     const [pname, setPname] = useState('');
@@ -14,6 +17,7 @@ function AddProduct() {
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
     const [pimages, setPimages] = useState([]);
+    const [wait, setWait] = useState(false);
 
     useEffect(() => {
         if (!localStorage.getItem('token')) {
@@ -25,6 +29,7 @@ function AddProduct() {
     }, [navigate]);
 
     const handleApi = (e) => {
+        setWait(true);
         e.preventDefault();
     
         navigator.geolocation.getCurrentPosition((position) => {
@@ -56,72 +61,67 @@ function AddProduct() {
                     }
                 })
                 .catch((err) => {
+                    setWait(false)
                     throw err; // Re-throw to handle it later
                 });
             });
     
             // Wait for all images to be uploaded
             Promise.all(imageUploadPromises)
-
                 .then(() => {
-                   
                     const url = API_URL + '/add-product';
-                 axios.post(url, formData)
-                    .then((res) => {
-                        // console.log(res.data)
-                        toast.success("Product Added Successfully! ", {
-                            position: "top-center",
-                            autoClose: 1000,
-                            onClose: () => {
-                                navigate('/');
-                            }
-                        });
-                    })
+                    axios.post(url, formData)
+                        .then((res) => {
+                            setWait(false);
+                            toast.success("Product Added Successfully! 🎉🎉 ", {
+                                position: "top-center",
+                                autoClose: 1000,
+                            });
+                            setTimeout(() => {
+                                
+                                navigate("/home") 
+                            }, 1700);
+
+                        })
                 })
                 .catch((err) => {
                     toast.error('Server Error');
                     console.error(err);
+                    setWait(false); // Ensure wait state is reset on error
                 });
         }, (error) => {
             toast.error('Geolocation error: ' + error.message);
+            setWait(false); // Ensure wait state is reset on error
         });
     };
-    
 
     return (
         <div>
             <div className="addProduct-header">
-                <LoginHeader data={"helo"} />
+                <LoginHeader data={"hello"} />
             </div>
             <div className="loginform23">
-                <h2 > Add Product </h2>
+                <h2>Add Product</h2>
                 <form className="login-form23" onSubmit={handleApi}>
-                    <label> Product name  <span className="add-span">*</span> </label>
-                    <br></br>
-
-                    <input className="userinput" type="text" required title="Enter valid name " value={pname}
+                    <label>Product name <span className="add-span">*</span></label>
+                    <br />
+                    <input className="userinput" type="text" required title="Enter valid name" value={pname}
                         onChange={(e) => { setPname(e.target.value) }} />
-                    <br></br>
-
-                    <label> Product description  <span className="add-span">*</span> </label>
-                    <br></br>
-
+                    <br />
+                    <label>Product description <span className="add-span">*</span></label>
+                    <br />
                     <input className="userinput" type="text" required value={pdesc}
                         onChange={(e) => { setPdesc(e.target.value) }} />
-                    <br></br>
-
-                    <label> Product price  <span className="add-span">*</span> </label>
-                    <br></br>
-
-                    <input className="userinput" type="number" title="enter product price " required value={price}
+                    <br />
+                    <label>Product price <span className="add-span">*</span></label>
+                    <br />
+                    <input className="userinput" type="number" title="Enter product price" required value={price}
                         onChange={(e) => { setPrice(e.target.value) }} />
-                    <br></br>
-
-                    <label> Product category  <span className="add-span">*</span> </label>
-                    <br></br>
+                    <br />
+                    <label>Product category <span className="add-span">*</span></label>
+                    <br />
                     <select className="userinput" value={category} required
                         onChange={(e) => { setCategory(e.target.value) }}>
-
                         {categories && categories.length > 0 &&
                             categories.map((item, index) => {
                                 return (
@@ -129,12 +129,11 @@ function AddProduct() {
                                 )
                             })
                         }
-                        <br></br>
+                        <br />
                     </select>
-                    <br></br>
-                    <label> Product Image(s) </label>
-                    <br></br>
-
+                    <br />
+                    <label>Product Image(s)</label>
+                    <br />
                     <div className="file-input-container">
                         <input id="fileInput" className="userinput1" type="file" multiple required
                             onChange={(e) => {
@@ -145,15 +144,19 @@ function AddProduct() {
                             <span>Choose file</span>
                         </label>
                     </div>
-
-
-                    <br></br>
-
-                    <button className="login-btn"> SUBMIT </button>
+                    <br />
+                    <button className="login-btn" disabled={wait}>
+                        {wait ? "PLEASE WAIT..." : "SUBMIT"}
+                    </button>
                 </form>
+                {wait && (
+                    <div className="spinner-container">
+                        <ClipLoader color="#000" loading={wait} size={50} />
+                    </div>
+                )}
             </div>
-            <ToastContainer />
-        </div>  
+            <Toaster />
+        </div>
     )
 }
 
