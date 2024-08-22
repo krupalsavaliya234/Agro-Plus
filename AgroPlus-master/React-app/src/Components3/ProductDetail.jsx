@@ -7,7 +7,7 @@ import API_URL from "../constants";
 import io from "socket.io-client";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
+import DotLoader from "react-spinners/ClipLoader";
 let socket;
 
 function ProductDetail() {
@@ -17,7 +17,7 @@ function ProductDetail() {
   const [user, setUser] = useState(null); // Initialize as null
   const [displayDetails, setDisplayDetails] = useState(false); // Default to false
   const { productId } = useParams();
-
+   const [loader,setloader]=useState(false);
   useEffect(() => {
     socket = io(API_URL);
 
@@ -40,14 +40,17 @@ function ProductDetail() {
 
   useEffect(() => {
     const fetchData = async () => {
+      setloader(true)
       try {
         const url = `${API_URL}/get-product/${productId}`;
         const response = await axios.get(url);
         const { product } = response.data;
         if (product) {
+          setloader(false);
           setProduct(product);
+
           localStorage.setItem("productId", product._id);
-          console.log("Product data:", product);
+          // console.log("Product data:", product);
         }
       } catch (error) {
         alert("Server error occurred.");
@@ -206,6 +209,9 @@ function ProductDetail() {
           )}
         </div>
       </div>
+      {loader && <div className="spinner-container">
+                  <DotLoader color="#000" loading={loader} size={50} />
+                </div>}
     </div>
   );
 }
