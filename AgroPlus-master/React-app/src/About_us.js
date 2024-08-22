@@ -90,7 +90,7 @@ const AboutUs = () => (
         <div className="aboutus-responsive-cell-block aboutus-wk-desk-3 aboutus-wk-ipadp-3 aboutus-wk-tab-6 aboutus-wk-mobile-12 aboutus-card-container">
           <div className="aboutus-card">
             <div className="aboutus-team-image-wrapper">
-              <img className="aboutus-team-member-image" src="./Images/krupal.jpg" style={{marginBottom:"-40px"}} alt="Krupal Savaliya" />
+              <img className="aboutus-team-member-image" src="./Images/krupal.jpg" style={{marginTop:"-40px"}} alt="Krupal Savaliya" />
             </div>
             <p className="aboutus-text-blk aboutus-name">
               Krupal Savaliya
