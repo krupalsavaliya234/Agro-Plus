@@ -7,7 +7,7 @@ import { FaHeart } from "react-icons/fa";
 import "./styles/myproduct.css";
 import API_URL from "../constants";
 
-import { toast } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import "react-hot-toast/dist/index.css";
 
 import { Carousel } from "react-responsive-carousel";
@@ -239,6 +239,7 @@ const MyProducts = () => {
           </div>
         </div>
       )}
+      <Toaster></Toaster>
     </div>
   );
 };
