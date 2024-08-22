@@ -70,7 +70,7 @@ function LoginHeader(props) {
                         cursor:'pointer',
                        
                     }}> 
-                    <img src="/images/man.png" className="login-header-image" style={{
+                    <img src="/Images/man.png" className="login-header-image" style={{
                         height:'40px',
                         width:'40px',
                         float:"right"
