@@ -17,11 +17,11 @@ function Groupchat() {
   
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      toast.error("Please login! 🙇", {
-        style: {
-          width: "300px",
-        },
-      });
+        toast.error("Please login! 🙇", {
+          style: {
+            width: "300px",
+          },
+        });
     setTimeout(() => {
        navigate("/login");
       }, 5000); 

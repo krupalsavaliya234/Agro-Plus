@@ -10,7 +10,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./styles/home.css";
 import "./styles/header.css";
 // import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { Toaster,toast } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import DotLoader from "react-spinners/ClipLoader";
 
@@ -198,7 +198,7 @@ function Home() {
             <DotLoader color="#000" loading={loader} size={50} />
           </div>
         )}
-        <ToastContainer />
+        <Toaster />
       </div>
     </div>
   );
