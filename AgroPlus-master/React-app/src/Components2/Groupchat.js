@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 // import Header from "./Components3/Header";
 // import "./styles/productdetail.css";
@@ -14,14 +14,18 @@ function Groupchat() {
   const [msgs, setMsgs] = useState([]);
   const { productId } = useParams();
   const navigate=useNavigate();
-  
+  const toastShown = useRef(false);
   useEffect(() => {
     if (!localStorage.getItem("token")) {
+      if (!toastShown.current) {
         toast.error("Please login! 🙇", {
           style: {
             width: "300px",
           },
         });
+        toastShown.current = true; // Set flag to true to prevent further notifications
+      }
+       
     setTimeout(() => {
        navigate("/login");
       }, 5000); 
