@@ -33,13 +33,14 @@ const io = new Server(httpServer, {
 });
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-app.use(cors({
-  origin: 'https://agroplus-rust.vercel.app', // Replace with your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Specify the allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
-  credentials: true // Enable this if you are sending cookies or other credentials
-}));
+// app.use(cors({
+//   origin: 'https://agroplus-rust.vercel.app', // Replace with your frontend URL
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Specify the allowed HTTP methods
+//   allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
+//   credentials: true // Enable this if you are sending cookies or other credentials
+// }));
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -55,24 +56,17 @@ app.post("/like-product", userController.likeProducts);
 // app.post('/dislike-product', userController.dislikeProducts)
 app.post(
   "/add-product",
-  // upload.fields([
-  //   { name: "pimage[1]" },
-  //   { name: "pimage[2]" },
-  //   { name: "pimage[3]" },
-  //   { name: "pimage[4]" },
-  //   { name: "pimage[5]" },
-  // ]),
+  upload.any(),
   productController.addProduct
 );
+
+// app.post('/add-product', upload.any(), (req, res) => {
+//   console.log(req.body); // This should show the form data
+//   // Handle the rest of your logic here
+// });
 app.patch(
   "/edit-product/:id",
-  upload.fields([
-    { name: "pimage[1]" },
-    { name: "pimage[2]" },
-    { name: "pimage[3]" },
-    { name: "pimage[4]" },
-    { name: "pimage[5]" },
-  ]),
+  upload.any(),
   productController.editProduct
 );
 app.get("/get-products", productController.getProducts);

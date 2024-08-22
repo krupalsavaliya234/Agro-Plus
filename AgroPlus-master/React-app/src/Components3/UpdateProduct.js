@@ -65,26 +65,58 @@ const UpdateProduct = () => {
     }));
   };
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault()
     const formData = new FormData();
     formData.append("pname", data.product.pname);
     formData.append("pdesc", data.product.pdesc);
     formData.append("price", data.product.price);
     formData.append("category", data.product.category);
-    pimages.forEach((image, index) => {
-      formData.append(`pimage[${index + 1}]`, image);
-    });
+    const imageUploadPromises = pimages.map((image, index) => {
+      const data = new FormData();
+      data.append("file", image);
+      data.append("upload_preset", "kdfugyao");
+
+      return fetch("https://api.cloudinary.com/v1_1/dmx0qh9f3/image/upload/", {
+          method: "post",
+          body: data,
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.secure_url) {
+              formData.append(`pimage[${index + 1}]`, data.secure_url);
+              console.log(data.secure_url);   
+          } else {
+              throw new Error('Image upload failed');
+          }
+      })
+      .catch((err) => {
+          console.error("Error uploading image:", err.message);
+          throw err; // Re-throw to handle it later
+      });
+  });
+ await  Promise.all(imageUploadPromises)
+
+  .then(() => {
+     
     try {
-      const res = await axios.patch(`${API_URL}/edit-product/${id}`, formData);
+      
+      const res =  axios.patch(`${API_URL}/edit-product/${id}`, formData);
       toast.success("Item Updated successfully!", {
         position: "top-center",
       });
       if (res.data) {
         fetchData();
-      }
+      } 
     } catch (error) {
       console.error("Error updating product:", error);
     }
+  })
+  .catch((err) => {
+      toast.error('Server Error');
+      console.error(err);
+  });
+   
   };
 
   const handleFileChange = (event) => {
@@ -203,7 +235,7 @@ const UpdateProduct = () => {
                 <div className="image-item" key={index}>
                   <div className="image-i">
                     <img
-                      src={`http://localhost:4000/${item}`}
+                      src={item}
                       className="existion-image"
                       alt={`Image ${index}`}
                     />

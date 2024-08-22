@@ -204,7 +204,7 @@ function Home() {
                             width="300px"
                             height="200px"
                             className="useradded-img1"
-                            src={API_URL + "/uploads/" + image}
+                            src={image}
                             alt={item.pname}
                           />
                         </div>
@@ -290,7 +290,7 @@ function Home() {
                             width="300px"
                             height="200px"
                             className="useradded-img1"
-                            src={API_URL + "/" + image}
+                            src={image}
                             alt={item.pname}
                           />
                         </div>

@@ -51,32 +51,32 @@ function AddProduct() {
                 .then(data => {
                     if (data.secure_url) {
                         formData.append(`pimage[${index + 1}]`, data.secure_url);
-                        console.log(data.secure_url);   
                     } else {
                         throw new Error('Image upload failed');
                     }
                 })
                 .catch((err) => {
-                    console.error("Error uploading image:", err.message);
                     throw err; // Re-throw to handle it later
                 });
             });
     
             // Wait for all images to be uploaded
             Promise.all(imageUploadPromises)
+
                 .then(() => {
+                   
                     const url = API_URL + '/add-product';
-                    return axios.post(url, formData);
-                })
-                .then((res) => {
-                    console.log(res.data)
-                    toast.success("Product Added Successfully! ", {
-                        position: "top-center",
-                        autoClose: 1000,
-                        onClose: () => {
-                            navigate('/');
-                        }
-                    });
+                 axios.post(url, formData)
+                    .then((res) => {
+                        // console.log(res.data)
+                        toast.success("Product Added Successfully! ", {
+                            position: "top-center",
+                            autoClose: 1000,
+                            onClose: () => {
+                                navigate('/');
+                            }
+                        });
+                    })
                 })
                 .catch((err) => {
                     toast.error('Server Error');
@@ -153,7 +153,7 @@ function AddProduct() {
                 </form>
             </div>
             <ToastContainer />
-        </div>
+        </div>  
     )
 }
 

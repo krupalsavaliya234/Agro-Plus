@@ -56,13 +56,20 @@ module.exports.search = async (req, res) => {
 };
 
 module.exports.addProduct = async (req, res) => {
+ 
+
   try {
     const images = [];
     const { pname, plat, plong, pdesc, price, category, userId } = req.body;
-    console.log(req.body);
-    Object.keys(req.files).forEach((key) => {
-      images.push(req.files[key][0].path);
+    
+    req.body.pimage.forEach((image) => {
+      if (image) {
+        images.push(image);
+      }
     });
+    
+    console.log(images); 
+    
 
     const productData = {
       pname,
@@ -97,31 +104,41 @@ module.exports.addProduct = async (req, res) => {
 
 module.exports.editProduct = async (req, res) => {
   try {
-    const images = [];
+    const images1 = [];
     const { id } = req.params;
-    const { pname, plat, plong, pdesc, price, category, userId } = req.body;
-    Object.keys(req.files).forEach((key) => {
-      images.push(req.files[key][0].path);
-    });
-    // console.log(images);
+    const { pname, plat, plong, pdesc, price, category, userId, pimage } = req.body;
+    
+        pimage.forEach((image) => {
+            images1.push(image);
+        });
+    
+
     const data = await Products.findOneAndUpdate(
-      { _id: id },
-      { pname, plat, plong, pdesc, price, category, userId }
-    );
-    images.forEach((image, index) => {
-      data.images.push(image);
-    });
-    await data.save();
-    res.send({ message: "updated success." });
-  } catch (error) {
+        { _id: id },
+        { pname, plat, plong, pdesc, price, category, userId },
+        { new: true }  
+        
+      );
+      if (data) {
+        images1.forEach((image) => {
+          data.images.push(image);
+        });
+        
+        await data.save();
+        res.send({ message: "Product updated successfully." });
+    } else {
+        res.status(404).send({ message: "Product not found." });
+    }
+} catch (error) {
     console.error(error);
-    res.status(500).send({ message: "server error" });
-  }
+    res.status(500).send({ message: "Server error" });
+}
+
 };
 
 module.exports.getProducts = async (req, res) => {
   try {
-    const catName = req.query.category; // Update query parameter name
+    const catName = req.query.category;
     let filter = {};
 
     if (catName) {
