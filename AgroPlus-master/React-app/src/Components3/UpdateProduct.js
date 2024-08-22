@@ -130,6 +130,8 @@ const UpdateProduct = () => {
           fetchData();
         } catch (error) {
           console.error("Error updating product:", error);
+          setWait(false);
+
           toast.error("Failed to update product.");
         }
       })
