@@ -9,7 +9,7 @@ const MarketPrice = () => {
   const [date, setDate] = useState("");
   const [district, setDistrict] = useState("");
   const [row, setRow] = useState(true);
-  const [wait,setWait]=useState(false);
+  const [wait, setWait] = useState(false);
   function handleChange(e) {
     console.log(`Option selected: ${e.target.value}`);
     setValue(e.target.value);
@@ -18,9 +18,8 @@ const MarketPrice = () => {
   // Get Data from user through select and option
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setWait(true)
+    setWait(true);
     try {
-
       const response = await axios.get(
         "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&filters%5Bstate%5D=Gujarat&filters%5Bdistrict%5D=" +
           value
@@ -33,27 +32,27 @@ const MarketPrice = () => {
       setDistrict(data1[0].market);
       setRow(false);
       setWait(false);
-      toast('Market prices fetched successfully!', {
+      toast("Market prices fetched successfully!", {
         duration: 4000,
-        position: 'top-center',
-      
+        position: "top-center",
+
         // Styling
         style: {},
-        className: '',
-      
+        className: "",
+
         // Custom Icon
-        icon: '👏',
-      
+        icon: "👏",
+
         // Change colors of success/error/loading icon
         iconTheme: {
-          primary: '#000',
-          secondary: '#fff',
+          primary: "#000",
+          secondary: "#fff",
         },
-      
+
         // Aria
         ariaProps: {
-          role: 'status',
-          'aria-live': 'polite',
+          role: "status",
+          "aria-live": "polite",
         },
       });
     } catch (error) {
@@ -74,16 +73,32 @@ const MarketPrice = () => {
                 <option value="" disabled>
                   Select a Market
                 </option>
-                <option value="Rajkot">Rajkot</option>
                 <option value="Amreli">Amreli</option>
+                <option value="Anand">Anand</option>
+                <option value="Bharuch">Bharuch</option>
+                <option value="Bhavnagar">Bhavnagar</option>
                 <option value="Dahod">Dahod</option>
                 <option value="Jamnagar">Jamnagar</option>
-                <option value="Jetpur">Jetpur</option>
+                <option value="Junagadh">Junagadh</option>
+                <option value="Kheda">Kheda</option>
+                <option value="Kutch">Kutch</option>
+                <option value="Mahisagar">Mahisagar</option>
+                <option value="Morbi">Morbi</option>
+                <option value="Narmada">Narmada</option>
+                <option value="Navsari">Navsari</option>
+                <option value="Patan">Patan</option>
+                <option value="Rajkot">Rajkot</option>
+                <option value="Sabarkantha">Sabarkantha</option>
+                <option value="Surat">Surat</option>
+                <option value="Surendranagar">Surendranagar</option>
+                <option value="Tapi">Tapi</option>
+                <option value="Vadodara">Vadodara</option>
+                <option value="Valsad">Valsad</option>
               </select>
             </div>
             <div>
-              <button className="marketprice-btn"  disabled={wait} type="submit">
-              {wait?"Please Wait...":"Submit"}
+              <button className="marketprice-btn" disabled={wait} type="submit">
+                {wait ? "Please Wait..." : "Submit"}
               </button>
             </div>
           </div>
