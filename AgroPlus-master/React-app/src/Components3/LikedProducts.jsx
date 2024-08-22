@@ -137,7 +137,7 @@ function LikedProducts() {
                           width="300px"
                           height="200px"
                           className="useradded-img2"
-                          src={API_URL + "/" + image}
+                          src={ image}
                           alt={item.pname}
                           onClick={() => handleProduct(item._id)}
                         />
@@ -198,7 +198,7 @@ function LikedProducts() {
                           width="300px"
                           height="200px"
                           className="useradded-img2"
-                          src={API_URL + "/" + image}
+                          src={ image}
                           alt={item.pname}
                         />
                       </div>
