@@ -12,6 +12,7 @@ import "./styles/header.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Audio } from 'react-loader-spinner'
+import DotLoader from "react-spinners/ClipLoader";
 function Home() {
   const navigate = useNavigate();
   const [liked1, setLiked] = useState(false);
@@ -21,28 +22,9 @@ function Home() {
   const [issearch, setIssearch] = useState(false);
   const [readMoreId, setReadMoreId] = useState(null);
   const [loder,setloder]=useState(false);
-  if(loder==false)
-  {
-    <Audio
-  height="80"
-  width="80"
-  radius="9"
-  color="green"
-  ariaLabel="loading"
-  wrapperStyle
-  wrapperClass
-/>
+ 
 
-  }
-  <Audio
-  height="80"
-  width="80"
-  radius="9"
-  color="green"
-  ariaLabel="loading"
-  wrapperStyle
-  wrapperClass
-/>
+ 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
@@ -345,6 +327,9 @@ function Home() {
         )}
         <ToastContainer />
       </div>
+      {loder}&& {<div className="spinner-container">
+                  <DotLoader color="#000" loading={wait} size={50} />
+                </div>}
     </div>
   );
 }
