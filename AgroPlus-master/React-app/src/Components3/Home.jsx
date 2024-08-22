@@ -32,6 +32,7 @@ function Home() {
   }, []);
 
   const getProduct = () => {
+  setloder(true)
     const url = API_URL + "/get-products";
     axios
       .get(url)
@@ -52,7 +53,7 @@ function Home() {
   };
 
   useEffect(() => {
-    setloder(true);
+   
 
     getProduct();
   }, []);
