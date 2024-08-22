@@ -14,9 +14,8 @@ function Groupchat() {
   const [msgs, setMsgs] = useState([]);
   const { productId } = useParams();
   const navigate=useNavigate();
-  useEffect(()=>{
-   
-    
+  
+  useEffect(() => {
     if (!localStorage.getItem("token")) {
       toast.error("Please login! 🙇", {
         style: {
@@ -24,13 +23,9 @@ function Groupchat() {
         },
       });
     setTimeout(() => {
-      
        navigate("/login");
       }, 5000); 
     }  
-    
-   })
-  useEffect(() => {
     socket = io(API_URL);
 
     socket.on("connect", () => {
