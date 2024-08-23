@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -9,10 +9,9 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./styles/home.css";
 import "./styles/header.css";
-// import { useNavigate } from "react-router-dom";
-import { Toaster,toast } from "react-hot-toast";
-import "react-toastify/dist/ReactToastify.css";
+import { Toaster, toast } from "react-hot-toast";
 import DotLoader from "react-spinners/ClipLoader";
+import debounce from 'lodash/debounce';
 
 function Home() {
   const navigate = useNavigate();
@@ -25,20 +24,16 @@ function Home() {
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-  
-    if (!localStorage.getItem("token")) {
-      toast.error("Please login!    🙇", {
-        style: {
-          width: "300px",
-        },
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Please login! 🙇", {
+        style: { width: "300px" },
       });
-     setTimeout(() => {
-      navigate("/login")
-     }, 5000);
+      setTimeout(() => navigate("/login"), 5000);
     } else {
       fetchProducts();
     }
-  }, []);
+  }, [navigate]);
 
   const fetchProducts = async () => {
     setLoader(true);
@@ -54,7 +49,7 @@ function Home() {
     }
   };
 
-  const handleSearch = async () => {
+  const handleSearch = useCallback(debounce(async () => {
     setIsSearchActive(true);
     try {
       const response = await axios.get(`${API_URL}/search?search=${search}`);
@@ -62,13 +57,13 @@ function Home() {
     } catch (error) {
       toast.error("Server Error", { position: "top-center" });
     }
-  };
+  }, 300), [search]);
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = useCallback((category) => {
     const filtered = products.filter((product) => product.category === category);
     setFilteredProducts(filtered);
     setIsSearchActive(true);
-  };
+  }, [products]);
 
   const handleLike = async (productId, e) => {
     e.stopPropagation();
@@ -93,8 +88,7 @@ function Home() {
   };
 
   const renderProductCard = (item) => {
-    const truncatedDescription =
-      item.pdesc.length > 50 ? `${item.pdesc.slice(0, 50)}...` : item.pdesc;
+    const truncatedDescription = item.pdesc.length > 50 ? `${item.pdesc.slice(0, 50)}...` : item.pdesc;
     const isReadMore = readMoreId === item._id;
 
     return (
@@ -102,23 +96,10 @@ function Home() {
         <div onClick={(e) => handleLike(item._id, e)} className="icon-con1">
           <FaHeart className="icons1" />
         </div>
-        <Carousel
-          autoPlay
-          showStatus={false}
-          showThumbs={false}
-          interval={3000}
-          infiniteLoop
-          stopOnHover
-        >
+        <Carousel autoPlay showStatus={false} showThumbs={false} interval={3000} infiniteLoop stopOnHover>
           {item.images.map((image, index) => (
             <div key={index} onClick={() => handleProductClick(item._id)}>
-              <img
-                width="300px"
-                height="200px"
-                className="useradded-img1"
-                src={image}
-                alt={item.pname}
-              />
+              <img width="300px" height="200px" className="useradded-img1" src={image} alt={item.pname} />
             </div>
           ))}
         </Carousel>
@@ -129,10 +110,7 @@ function Home() {
         <p className="m-2">
           {isReadMore ? item.pdesc : truncatedDescription}
           {item.pdesc.length > 50 && (
-            <span
-              onClick={() => setReadMoreId(isReadMore ? null : item._id)}
-              className="read-more-btn2"
-            >
+            <span onClick={() => setReadMoreId(isReadMore ? null : item._id)} className="read-more-btn2">
               {isReadMore ? "Read Less" : "Read More"}
             </span>
           )}
@@ -144,23 +122,13 @@ function Home() {
   return (
     <div className="home-container1">
       <div className="header01 home-container1">
-        <Header
-          search={search}
-          handlesearch={(e) => setSearch(e.target.value)}
-          handleClick={handleSearch}
-        />
+        <Header search={search} handlesearch={(e) => setSearch(e.target.value)} handleClick={handleSearch} />
       </div>
 
       <div className="cat-container1">
-        <span className="pr-3" onClick={fetchProducts}>
-          All Categories
-        </span>
+        <span className="pr-3" onClick={fetchProducts}>All Categories</span>
         {categories.map((item, index) => (
-          <span
-            key={index}
-            onClick={() => handleCategoryClick(item)}
-            className="category1"
-          >
+          <span key={index} onClick={() => handleCategoryClick(item)} className="category1">
             {item}
           </span>
         ))}
@@ -171,12 +139,7 @@ function Home() {
           <div>
             <h5 className="search-title1">
               Search Results
-              <button
-                className="clear-btn1"
-                onClick={() => setIsSearchActive(false)}
-              >
-                CLEAR
-              </button>
+              <button className="clear-btn1" onClick={() => setIsSearchActive(false)}>CLEAR</button>
             </h5>
             <div className="d-flex m-4 justify-content-center flex-wrap">
               {filteredProducts.length > 0 ? (
