@@ -38,19 +38,27 @@ const MarketPrice = () => {
         `https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&filters%5Bstate%5D=Gujarat&filters%5Bdistrict%5D=${value}`
       );
       const data1 = response.data.records;
-      setData(data1);
-      setDate(data1[0]?.arrival_date || "");
-      setDistrict(data1[0]?.market || "");
-      setRow(false);
-      setWait(false);
-      toast.success("Market prices fetched successfully!", {
-        position: "top-center",
-        icon: "👏",
-      });
+      
+      if (data1.length === 0) {
+        toast.error("No data available for the selected market.", {
+          position: "top-center",
+        });
+        setRow(true);
+      } else {
+        setData(data1);
+        setDate(data1[0]?.arrival_date || "");
+        setDistrict(data1[0]?.market || "");
+        setRow(false);
+        toast.success("Market prices fetched successfully!", {
+          position: "top-center",
+          icon: "👏",
+        });
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
-      setWait(false);
       toast.error("Failed to fetch market prices. Please try again.");
+    } finally {
+      setWait(false);
     }
   };
 
@@ -66,7 +74,6 @@ const MarketPrice = () => {
                 <option value="" disabled>
                   Select a Market
                 </option>
-                {/* Your list of options */}
                 {[
                   "Amreli", "Anand", "Bharuch", "Bhavnagar", "Dahod",
                   "Jamnagar", "Junagadh", "Kheda", "Kutch", "Mahisagar",
