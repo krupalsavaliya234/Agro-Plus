@@ -1,86 +1,62 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import toast, { Toaster } from "react-hot-toast"; // Import react-hot-toast
+import toast, { Toaster } from "react-hot-toast"; 
 import "./market_price.css";
 import { useNavigate } from "react-router-dom";
 
 const MarketPrice = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
   const [date, setDate] = useState("");
   const [district, setDistrict] = useState("");
   const [row, setRow] = useState(true);
   const [wait, setWait] = useState(false);
-  function handleChange(e) {
-    console.log(`Option selected: ${e.target.value}`);
-    setValue(e.target.value);
-  }
 
-  useEffect(()=>{
-   
-    
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  useEffect(() => {
     if (!localStorage.getItem("token")) {
       toast.error("Please login! 🙇", {
         style: {
           width: "300px",
         },
       });
-   setTimeout(() => {
-      navigate("/login");
-    }, 5000); 
-  }  
-   
-  })
-  // Get Data from user through select and option
+      setTimeout(() => {
+        navigate("/login");
+      }, 5000);
+    }
+  }, [navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setWait(true);
     try {
       const response = await axios.get(
-        "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&filters%5Bstate%5D=Gujarat&filters%5Bdistrict%5D=" +
-          value
+        `https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&filters%5Bstate%5D=Gujarat&filters%5Bdistrict%5D=${value}`
       );
-      console.log(response);
       const data1 = response.data.records;
-      console.log(data1);
       setData(data1);
-      setDate(data1[0].arrival_date);
-      setDistrict(data1[0].market);
+      setDate(data1[0]?.arrival_date || "");
+      setDistrict(data1[0]?.market || "");
       setRow(false);
       setWait(false);
-      toast("Market prices fetched successfully!", {
-        duration: 4000,
+      toast.success("Market prices fetched successfully!", {
         position: "top-center",
-
-        // Styling
-        style: {},
-        className: "",
-
-        // Custom Icon
         icon: "👏",
-
-        // Change colors of success/error/loading icon
-        iconTheme: {
-          primary: "#000",
-          secondary: "#fff",
-        },
-
-        // Aria
-        ariaProps: {
-          role: "status",
-          "aria-live": "polite",
-        },
       });
     } catch (error) {
       console.error("Error fetching data:", error);
-      toast.error("Failed to fetch market prices. Please try again."); // Error toast
+      setWait(false);
+      toast.error("Failed to fetch market prices. Please try again.");
     }
   };
 
   return (
     <div className={row ? "marketprice-container" : "marketprice-container1"}>
-      <Toaster /> {/* Add Toaster component to render the toasts */}
+      <Toaster />
       <div className="market">
         <form onSubmit={handleSubmit} className="market-price-form">
           <div className="market-div">
@@ -90,27 +66,18 @@ const MarketPrice = () => {
                 <option value="" disabled>
                   Select a Market
                 </option>
-                <option value="Amreli">Amreli</option>
-                <option value="Anand">Anand</option>
-                <option value="Bharuch">Bharuch</option>
-                <option value="Bhavnagar">Bhavnagar</option>
-                <option value="Dahod">Dahod</option>
-                <option value="Jamnagar">Jamnagar</option>
-                <option value="Junagadh">Junagadh</option>
-                <option value="Kheda">Kheda</option>
-                <option value="Kutch">Kutch</option>
-                <option value="Mahisagar">Mahisagar</option>
-                <option value="Morbi">Morbi</option>
-                <option value="Narmada">Narmada</option>
-                <option value="Navsari">Navsari</option>
-                <option value="Patan">Patan</option>
-                <option value="Rajkot">Rajkot</option>
-                <option value="Sabarkantha">Sabarkantha</option>
-                <option value="Surat">Surat</option>
-                <option value="Surendranagar">Surendranagar</option>
-                <option value="Tapi">Tapi</option>
-                <option value="Vadodara">Vadodara</option>
-                <option value="Valsad">Valsad</option>
+                {/* Your list of options */}
+                {[
+                  "Amreli", "Anand", "Bharuch", "Bhavnagar", "Dahod",
+                  "Jamnagar", "Junagadh", "Kheda", "Kutch", "Mahisagar",
+                  "Morbi", "Narmada", "Navsari", "Patan", "Rajkot",
+                  "Sabarkantha", "Surat", "Surendranagar", "Tapi",
+                  "Vadodara", "Valsad"
+                ].map((market, index) => (
+                  <option key={index} value={market}>
+                    {market}
+                  </option>
+                ))}
               </select>
             </div>
             <div>
@@ -122,10 +89,10 @@ const MarketPrice = () => {
         </form>
       </div>
       <div>
-        <p className="table-p">{date ? district : ""}</p>
+        <p className="table-p">{district}</p>
         <p className="table-p">{date}</p>
-        <p className="table-p">{date ? "20kg" : ""}</p>
-        {date ? (
+        <p className="table-p">{date && "20kg"}</p>
+        {date && (
           <table className="market-table">
             <thead>
               <tr>
@@ -146,7 +113,7 @@ const MarketPrice = () => {
               ))}
             </tbody>
           </table>
-        ) : null}
+        )}
       </div>
     </div>
   );
