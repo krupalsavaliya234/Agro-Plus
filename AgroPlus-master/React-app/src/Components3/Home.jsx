@@ -49,23 +49,14 @@ function Home() {
     }
   };
 
-  useEffect(() => {
-    if (search) {
-      handleSearch();
-    }
-  }, [search, handleSearch]);
-
   const handleSearch = useCallback(debounce(async () => {
-    setLoader(true);
     setIsSearchActive(true);
-    try {
-      const response = await axios.get(`${API_URL}/search?search=${search}`);
-      setFilteredProducts(response.data.products);
-    } catch (error) {
-      toast.error("Server Error", { position: "top-center" });
-    } finally {
-      setLoader(false);
-    }
+    // try {
+    //   const response = await axios.get(`${API_URL}/search?search=${search}`);
+    //   setFilteredProducts(response.data.products);
+    // } catch (error) {
+    //   toast.error("Server Error", { position: "top-center" });
+    // }
   }, 300), [search]);
 
   const handleCategoryClick = useCallback((category) => {
