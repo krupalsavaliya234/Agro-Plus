@@ -46,6 +46,9 @@ app.options('*', cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/sitemap.xml', (req, res) => {
+  res.sendFile(__dirname + '/sitemap.xml');
+});
 const port = process.env.PORT || 4000;
 
 app.get("/", (req, res) => {
