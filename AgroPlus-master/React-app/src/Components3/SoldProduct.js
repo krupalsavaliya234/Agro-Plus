@@ -71,7 +71,6 @@ const SoldProduct = () => {
 
   return (
     <div>
-    // Sold Product Page
 <Helmet>
   <title>Sold Products</title>
   <meta name="description" content="View the products that have been sold." />

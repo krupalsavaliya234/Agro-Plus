@@ -63,7 +63,6 @@ const Weather = () => {
 
   return (
     <div className="weather-container1">
-    // Weather Page
 <Helmet>
   <title>Weather</title>
   <meta name="description" content="Check the current weather conditions and forecasts." />

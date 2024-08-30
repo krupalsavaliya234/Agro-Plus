@@ -110,7 +110,7 @@ function ProductDetail() {
 
   return (
     <div>
-    // Product Details Page
+  
 <Helmet>
   <title>Product Details</title>
   <meta name="description" content="View details of a specific product." />

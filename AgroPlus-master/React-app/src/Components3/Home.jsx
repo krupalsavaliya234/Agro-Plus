@@ -147,7 +147,7 @@ function Home() {
   <title>Home-AgroPlus</title>
   <meta name="description" content="Welcome to our homepage." />
 </Helmet>
-      <Header/>
+      
       <div className="header01 home-container1">
         <Header search={search} handlesearch={(value) => setSearch(value)} handleClick={handleSearch} />
       </div>

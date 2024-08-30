@@ -4,7 +4,7 @@ import Navbar from './Components/navbar/Navbar';
 import {Helmet} from "react-helmet"
 
 const ContactUs = () => (
-  <>// Contact Us Page
+  <>
   <Helmet>
     <title>Contact Us</title>
     <meta name="description" content="Get in touch with us for any queries or support." />

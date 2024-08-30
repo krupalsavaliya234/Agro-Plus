@@ -129,7 +129,6 @@ const MyProducts = () => {
 
   return (
     <div className="myproduct-container3">
-    // My Profile Page
 <Helmet>
   <title>My Profile</title>
   <meta name="description" content="View and edit your profile details." />

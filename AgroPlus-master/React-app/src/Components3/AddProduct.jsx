@@ -98,7 +98,6 @@ function AddProduct() {
 
     return (
         <div>
-        // Add Product Page
 <Helmet>
   <title>Add Product</title>
   <meta name="description" content="Add a new product to our catalog." />

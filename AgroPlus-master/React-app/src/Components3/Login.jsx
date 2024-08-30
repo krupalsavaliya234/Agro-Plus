@@ -60,7 +60,6 @@ function Login() {
 
   return (
     <div className="box3">
-    // Login Page
 <Helmet>
   <title>Login</title>
   <meta name="description" content="Login to access your account." />

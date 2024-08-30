@@ -95,7 +95,6 @@ const [loader,setloader]=useState(false);
 
   return (
     <div className="likeproduct-header2">
-    // Liked Product Page
 <Helmet>
   <title>Liked Products</title>
   <meta name="description" content="View your liked products." />

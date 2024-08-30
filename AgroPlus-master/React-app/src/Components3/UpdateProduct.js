@@ -145,7 +145,7 @@ const UpdateProduct = () => {
 
   return (
     <div className="updateproduct-header">
-    // Update Product Page
+   
 <Helmet>
   <title>Update Product</title>
   <meta name="description" content="Update the details of an existing product." />

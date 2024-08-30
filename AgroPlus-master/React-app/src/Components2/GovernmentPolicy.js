@@ -34,7 +34,6 @@ const GovernmentPolicy = () => {
 
   return (
     <div className="policy-container" >
-    // Government Policies Page
 <Helmet>
   <title>Government Policies</title>
   <meta name="description" content="Explore government policies relevant to our services." />

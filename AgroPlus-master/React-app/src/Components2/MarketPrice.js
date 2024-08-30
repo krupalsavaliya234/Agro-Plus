@@ -69,7 +69,6 @@ const MarketPrice = () => {
 
   return (
     <div className={row ? "marketprice-container" : "marketprice-container1"}>
-    // Market Price Page
 <Helmet>
   <title>Market Price</title>
   <meta name="description" content="View the current market prices of various products." />

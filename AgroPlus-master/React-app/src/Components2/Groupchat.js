@@ -71,7 +71,6 @@ function Groupchat() {
 
   return (
     <div className="groupchat-container">
-      {/* <Header /> */}// Group Chat Page
 <Helmet>
   <title>Group Chat</title>
   <meta name="description" content="Join the group chat and interact with others." />
