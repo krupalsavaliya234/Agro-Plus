@@ -36,7 +36,7 @@ function Section3() {
             </div>
             <div className='selection3-sub'>
                {
-                  <Link to="/groupchat" className="link-container">
+                  <Link to="/group-chat" className="link-container">
                      <img src='Images/Group.png' className="goverment-policies-img section3-set"></img>
                      <h2>Connect with Community</h2>
                      <p>Connecting with your community fosters mutual support, collaboration, and a sense of belonging, enriching both personal and collective experiences</p>
@@ -46,7 +46,7 @@ function Section3() {
 
             <div className='selection3-sub'>
                {
-                  <Link to="/govenment-policies" className="link-container">
+                  <Link to="/government-policies" className="link-container">
                      <img src='Images/Viewing-Government.png' className="goverment-policies-img section3-set"></img>
                      <h2>Government Policies and Benefits</h2>
                      <p>AgroPlus provides a dedicated section with up-to-date information on government agricultural policies, subsidies, and benefits.  </p>
@@ -64,7 +64,7 @@ function Section3() {
 
             <div className='selection3-sub'>
                {
-                  <Link to="/maket-price" className="link-container">
+                  <Link to="/market-price" className="link-container">
                      <img className='section3-set' src='Images/market.png'></img>
                      <h2>APMC Market Price</h2>
                      <p>Show all apmc live market price, for useful to farmer know price of all crops of apmc.</p>

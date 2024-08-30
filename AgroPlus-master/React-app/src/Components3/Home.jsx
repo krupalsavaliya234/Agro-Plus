@@ -107,11 +107,11 @@ function Home() {
     return (
 
       <div key={item._id} className="card2 m-4 position-relative">
-      <Header></Header>
+   
 <Helmet>
-  <title>Home</title>
+  <title>Home-AgroPlus</title>
   <meta name="description" content="Welcome to our homepage." />
-</Helmet>
+</Helmet> 
 
         <div onClick={(e) => handleLike(item._id, e)} className="icon-con1">
           <FaHeart className="icons1" />
