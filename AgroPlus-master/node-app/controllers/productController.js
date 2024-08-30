@@ -140,14 +140,20 @@ module.exports.editProduct = async (req, res) => {
 module.exports.getProducts = async (req, res) => {
   try {
     const catName = req.query.category;
-    let filter = {};
+if(catName){
 
-    if (catName) {
-      filter = { category: catName };
-    }
-
+  let filter = {};
+  
+    filter = { category: catName };
     const results = await Products.find(filter);
-    res.send({ message: "success", products: results });
+  res.send({ message: "success", products: results });
+
+}
+else{
+  const results = await Products.find();
+  res.send({ message: "success", products: results });
+
+}
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: "server error" });

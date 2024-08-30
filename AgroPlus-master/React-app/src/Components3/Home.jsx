@@ -41,12 +41,14 @@ function Home() {
     try {
       const response = await axios.get(`${API_URL}/get-products`);
       if (response.data.products) {
+      setLoader(false);
+
         setProducts(response.data.products);
       }
     } catch (error) {
-      toast.error("Server Error", { position: "top-center" });
-    } finally {
       setLoader(false);
+
+      toast.error("Server Error", { position: "top-center" });
     }
   };
 
