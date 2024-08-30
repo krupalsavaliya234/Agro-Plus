@@ -18,16 +18,15 @@ import MyProfile from "./Components3/MyProfile.jsx";
 import UpdateProduct from "./Components3/UpdateProduct.js";
 import SoldProduct from "./Components3/SoldProduct.js";
 import Groupchat from './Components2/Groupchat.js';
-
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import MainHome from "./Components/MainHome.js";
 
 function App() {
   return (
     <Router>
-      <SpeedInsights>
-        
+   
+     
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<MainHome />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
@@ -46,7 +45,7 @@ function App() {
           <Route path="/weather" element={<Weather />} />
           <Route path="/group-chat" element={<Groupchat />} />
         </Routes>
-      </SpeedInsights>
+      
     </Router>
   );
 }

@@ -105,8 +105,9 @@ function Home() {
     const isReadMore = readMoreId === item._id;
 
     return (
+
       <div key={item._id} className="card2 m-4 position-relative">
-      
+      <Header></Header>
 <Helmet>
   <title>Home</title>
   <meta name="description" content="Welcome to our homepage." />
@@ -146,7 +147,7 @@ function Home() {
   <title>Home-AgroPlus</title>
   <meta name="description" content="Welcome to our homepage." />
 </Helmet>
-
+      <Header/>
       <div className="header01 home-container1">
         <Header search={search} handlesearch={(value) => setSearch(value)} handleClick={handleSearch} />
       </div>
