@@ -33,8 +33,6 @@ const io = new Server(httpServer, {
 });
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-app.use(cors())
-// Your other middleware and routes go here
 
 // Example: Handling preflight requests
 app.options('*', cors({
@@ -46,9 +44,7 @@ app.options('*', cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/sitemap.xml', (req, res) => {
-  res.sendFile(__dirname + '/sitemap.xml');
-});
+
 const port = process.env.PORT || 4000;
 
 app.get("/", (req, res) => {
