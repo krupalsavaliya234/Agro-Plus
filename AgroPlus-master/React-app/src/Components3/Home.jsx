@@ -10,11 +10,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./styles/home.css";
 import "./styles/header.css";
 import { Toaster, toast } from "react-hot-toast";
-import DotLoader from "react-spinners/ClipLoader";
-import debounce from 'lodash/debounce';
+import { DotLoader, BeatLoader } from "react-spinners";
+import debounce from "lodash/debounce";
 
 function Home() {
   const navigate = useNavigate();
+  const [bit, setBit] = useState(false);
   const [liked, setLiked] = useState(false);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -49,21 +50,30 @@ function Home() {
     }
   };
 
-  const handleSearch = useCallback(debounce(async () => {
-    setIsSearchActive(true);
-    try {
-      const response = await axios.get(`${API_URL}/search?search=${search}`);
-      setFilteredProducts(response.data.products);
-    } catch (error) {
-      toast.error("Server Error", { position: "top-center" });
-    }
-  }, 300), [search]);
+  const handleSearch = useCallback(
+    debounce(async () => {
+      setBit(true);
+      setIsSearchActive(true);
+      try {
+        const response = await axios.get(`${API_URL}/search?search=${search}`);
+        setFilteredProducts(response.data.products);
+      } catch (error) {
+        toast.error("Server Error", { position: "top-center" });
+      } finally {
+        setBit(false);
+      }
+    }, 300),
+    [search]
+  );
 
-  const handleCategoryClick = useCallback((category) => {
-    const filtered = products.filter((product) => product.category === category);
-    setFilteredProducts(filtered);
-    setIsSearchActive(true);
-  }, [products]);
+  const handleCategoryClick = useCallback(
+    (category) => {
+      const filtered = products.filter((product) => product.category === category);
+      setFilteredProducts(filtered);
+      setIsSearchActive(true);
+    },
+    [products]
+  );
 
   const handleLike = async (productId, e) => {
     e.stopPropagation();
@@ -122,11 +132,13 @@ function Home() {
   return (
     <div className="home-container1">
       <div className="header01 home-container1">
-        <Header search={search} handlesearch={(e) => setSearch(e.target.value)} handleClick={handleSearch} />
+        <Header search={search} handlesearch={(value) => setSearch(value)} handleClick={handleSearch} />
       </div>
 
       <div className="cat-container1">
-        <span className="pr-3" onClick={fetchProducts}>All Categories</span>
+        <span className="pr-3" onClick={fetchProducts}>
+          All Categories
+        </span>
         {categories.map((item, index) => (
           <span key={index} onClick={() => handleCategoryClick(item)} className="category1">
             {item}
@@ -139,7 +151,9 @@ function Home() {
           <div>
             <h5 className="search-title1">
               Search Results
-              <button className="clear-btn1" onClick={() => setIsSearchActive(false)}>CLEAR</button>
+              <button className="clear-btn1" onClick={() => setIsSearchActive(false)}>
+                CLEAR
+              </button>
             </h5>
             <div className="d-flex m-4 justify-content-center flex-wrap">
               {filteredProducts.length > 0 ? (
@@ -159,6 +173,11 @@ function Home() {
         {loader && (
           <div className="spinner-container">
             <DotLoader color="#000" loading={loader} size={50} />
+          </div>
+        )}
+        {bit && (
+          <div className="spinner-container">
+            <BeatLoader />
           </div>
         )}
         <Toaster />

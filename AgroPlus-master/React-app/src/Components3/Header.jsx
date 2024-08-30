@@ -52,13 +52,26 @@ function Header(props) {
 
               
                    
-                        <input className='search'
-                            type='text'
-                            onChange={(e) => props.handlesearch && props.handlesearch(e.target.value)}
-                        />
-                        <button className='search-btn' onClick={() => props.handleClick && props.handleClick()}>
-                            <FaSearch />
-                        </button>
+                <input 
+    className="search"
+    type="text"
+    onChange={(e) => {
+        if (props.handlesearch) {
+            props.handlesearch(e.target.value);
+        }
+    }}
+/>
+<button 
+    className="search-btn" 
+    onClick={() => {
+        if (props.handleClick) {
+            props.handleClick();
+        }
+    }}
+>
+    <FaSearch />
+</button>
+
                     </>
                     : " "
                 } </div>

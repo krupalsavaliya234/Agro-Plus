@@ -33,14 +33,7 @@ const io = new Server(httpServer, {
 });
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
-app.use(cors({
-  origin: 'https://agroplus-rust.vercel.app', 
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],  // Use 'PATCH' in uppercase
-  allowedHeaders: ['Content-Type', 'Authorization'], 
-  credentials: true 
-}));
-
+app.use(cors())
 // Your other middleware and routes go here
 
 // Example: Handling preflight requests

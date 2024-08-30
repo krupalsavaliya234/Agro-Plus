@@ -30,6 +30,7 @@ module.exports.search = async (req, res) => {
     const { loc, search } = req.query;
     // const [latitude, longitude] = loc.split(",");
 
+    console.log(search);
     const results = await Products.find({
       $or: [
         { pname: { $regex: search, $options: "i" } },
