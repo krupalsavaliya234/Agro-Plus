@@ -51,12 +51,12 @@ function Home() {
 
   const handleSearch = useCallback(debounce(async () => {
     setIsSearchActive(true);
-    // try {
-    //   const response = await axios.get(`${API_URL}/search?search=${search}`);
-    //   setFilteredProducts(response.data.products);
-    // } catch (error) {
-    //   toast.error("Server Error", { position: "top-center" });
-    // }
+    try {
+      const response = await axios.get(`${API_URL}/search?search=${search}`);
+      setFilteredProducts(response.data.products);
+    } catch (error) {
+      toast.error("Server Error", { position: "top-center" });
+    }
   }, 300), [search]);
 
   const handleCategoryClick = useCallback((category) => {
