@@ -25,7 +25,7 @@ function App() {
   return (
     <Router>
       <SpeedInsights>
-        <Header />
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
