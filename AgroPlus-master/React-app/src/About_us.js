@@ -1,9 +1,14 @@
 import React from 'react';
 import './about-us.css'; 
 import Navbar from './Components/navbar/Navbar'
-
+import {Helmet} from "react-helmet"
 const AboutUs = () => ( 
-  <>
+  <>// About Us Page
+  <Helmet>
+    <title>About Us</title>
+    <meta name="description" content="Learn more about us and our mission." />
+  </Helmet>
+  
 
     <p className="aboutus-text-blk aboutus-team-head-text">
       Meet Our Team

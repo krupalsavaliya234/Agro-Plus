@@ -11,6 +11,7 @@ import { Carousel } from "react-responsive-carousel";
 import "./styles/soldproduct.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {Helmet} from "react-helmet"
 
 
 
@@ -70,6 +71,12 @@ const SoldProduct = () => {
 
   return (
     <div>
+    // Sold Product Page
+<Helmet>
+  <title>Sold Products</title>
+  <meta name="description" content="View the products that have been sold." />
+</Helmet>
+
       <div className="sold-header">
         <Header />
         item={"false"}

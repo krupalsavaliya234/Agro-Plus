@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import "./market_price.css";
 import { useNavigate } from "react-router-dom";
 import { DotLoader, BeatLoader } from "react-spinners";
+import {Helmet} from "react-helmet"
 
 const MarketPrice = () => {
   const navigate = useNavigate();
@@ -68,6 +69,12 @@ const MarketPrice = () => {
 
   return (
     <div className={row ? "marketprice-container" : "marketprice-container1"}>
+    // Market Price Page
+<Helmet>
+  <title>Market Price</title>
+  <meta name="description" content="View the current market prices of various products." />
+</Helmet>
+
     {wait &&  <div className="spinner-container">
             <DotLoader color="#000" loading={wait} size={50} />
           </div>}

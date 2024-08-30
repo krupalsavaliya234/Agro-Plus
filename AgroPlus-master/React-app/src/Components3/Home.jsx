@@ -12,6 +12,7 @@ import "./styles/header.css";
 import { Toaster, toast } from "react-hot-toast";
 import { DotLoader, BeatLoader } from "react-spinners";
 import debounce from "lodash/debounce";
+import {Helmet} from "react-helmet"
 
 function Home() {
   const navigate = useNavigate();
@@ -105,6 +106,12 @@ function Home() {
 
     return (
       <div key={item._id} className="card2 m-4 position-relative">
+      
+<Helmet>
+  <title>Home</title>
+  <meta name="description" content="Welcome to our homepage." />
+</Helmet>
+
         <div onClick={(e) => handleLike(item._id, e)} className="icon-con1">
           <FaHeart className="icons1" />
         </div>
@@ -132,7 +139,14 @@ function Home() {
   };
 
   return (
+    
     <div className="home-container1">
+  
+<Helmet>
+  <title>Home-AgroPlus</title>
+  <meta name="description" content="Welcome to our homepage." />
+</Helmet>
+
       <div className="header01 home-container1">
         <Header search={search} handlesearch={(value) => setSearch(value)} handleClick={handleSearch} />
       </div>

@@ -2,6 +2,9 @@ import React, { useState ,useEffect} from "react";
 import "./weather.css";
 import { useNavigate } from "react-router-dom";
 import { Toaster,toast } from "react-hot-toast";
+import {Helmet} from "react-helmet"
+
+
 const Weather = () => {
   const navigate=useNavigate();
   const [weatherData, setWeatherData] = useState({
@@ -60,6 +63,12 @@ const Weather = () => {
 
   return (
     <div className="weather-container1">
+    // Weather Page
+<Helmet>
+  <title>Weather</title>
+  <meta name="description" content="Check the current weather conditions and forecasts." />
+</Helmet>
+
       <h1>Weather App</h1>
       <div className="weather-part2">
         <form className="weatherform" onSubmit={showWeather}>

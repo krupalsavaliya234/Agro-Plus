@@ -7,6 +7,7 @@ import { Toaster, toast } from "react-hot-toast";
 import ClipLoader from "react-spinners/ClipLoader";
 import Header from "./Header";
 import "./styles/updateproduct.css";
+import {Helmet} from "react-helmet"
 
 const UpdateProduct = () => {
   const { id } = useParams();
@@ -144,6 +145,12 @@ const UpdateProduct = () => {
 
   return (
     <div className="updateproduct-header">
+    // Update Product Page
+<Helmet>
+  <title>Update Product</title>
+  <meta name="description" content="Update the details of an existing product." />
+</Helmet>
+
       <Header />
       <div className="updateform">
         <h2>Update Product</h2>

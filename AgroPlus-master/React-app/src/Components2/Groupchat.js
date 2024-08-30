@@ -6,7 +6,8 @@ import API_URL from "../constants";
 import io from "socket.io-client";
 import "./groupchat.css";
 import { Toaster,toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";import {Helmet} from "react-helmet"
+
 let socket;
 
 function Groupchat() {
@@ -70,7 +71,12 @@ function Groupchat() {
 
   return (
     <div className="groupchat-container">
-      {/* <Header /> */}
+      {/* <Header /> */}// Group Chat Page
+<Helmet>
+  <title>Group Chat</title>
+  <meta name="description" content="Join the group chat and interact with others." />
+</Helmet>
+
 
       <div className="groupchat">
         <h4>Group Chat</h4>

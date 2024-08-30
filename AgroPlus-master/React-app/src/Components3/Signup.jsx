@@ -5,6 +5,7 @@ import API_URL from "../constants";
 import toast, { Toaster } from 'react-hot-toast'; 
 import "./styles/signup.css";
 import LoginHeader from "./LoginHeader";
+import {Helmet} from "react-helmet"
 
 function Signup() {
   const navigate = useNavigate();
@@ -61,7 +62,12 @@ function Signup() {
   };
 
   return (
-    <div className="box2">
+    <div className="box2">// Signup Page
+    <Helmet>
+      <title>Signup</title>
+      <meta name="description" content="Create a new account with us." />
+    </Helmet>
+    
       <div className="loginHeader">
         <LoginHeader />
       </div>

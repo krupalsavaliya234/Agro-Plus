@@ -4,6 +4,7 @@ import LoginHeader from "./LoginHeader";
 import axios from "axios";
 import API_URL from "../constants";
 import toast, { Toaster } from 'react-hot-toast';
+import {Helmet} from "react-helmet"
 
 import "./styles/login.css";
 
@@ -59,6 +60,12 @@ function Login() {
 
   return (
     <div className="box3">
+    // Login Page
+<Helmet>
+  <title>Login</title>
+  <meta name="description" content="Login to access your account." />
+</Helmet>
+
       <div className="loginHeader">
         <LoginHeader />
       </div>

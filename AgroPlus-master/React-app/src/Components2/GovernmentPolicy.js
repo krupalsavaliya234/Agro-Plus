@@ -3,6 +3,8 @@ import data from "./policies";
 import "./policy.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {Helmet} from "react-helmet"
+
 import { Toaster,toast } from "react-hot-toast";
 const GovernmentPolicy = () => {
   const navigate=useNavigate();
@@ -32,6 +34,12 @@ const GovernmentPolicy = () => {
 
   return (
     <div className="policy-container" >
+    // Government Policies Page
+<Helmet>
+  <title>Government Policies</title>
+  <meta name="description" content="Explore government policies relevant to our services." />
+</Helmet>
+
       <div className="ministry">Ministry of Agriculture & Farmers Welfare</div>
       <img src="images/azadi.png" className="azadi" />
       <h2>Schemes for Welfare of Farmers</h2>

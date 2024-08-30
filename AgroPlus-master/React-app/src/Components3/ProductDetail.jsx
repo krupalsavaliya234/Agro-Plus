@@ -9,6 +9,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import DotLoader from "react-spinners/ClipLoader";
 import { DotLoader, BeatLoader } from "react-spinners";
+import {Helmet} from "react-helmet"
 
 let socket;
 
@@ -109,6 +110,12 @@ function ProductDetail() {
 
   return (
     <div>
+    // Product Details Page
+<Helmet>
+  <title>Product Details</title>
+  <meta name="description" content="View details of a specific product." />
+</Helmet>
+
       <Header />
       <div className="main1">
         <div className="part1">

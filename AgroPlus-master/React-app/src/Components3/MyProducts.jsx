@@ -14,6 +14,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { DotLoader, BeatLoader } from "react-spinners";
 
+import {Helmet} from "react-helmet"
 
 const MyProducts = () => {
   const navigate = useNavigate();
@@ -128,6 +129,12 @@ const MyProducts = () => {
 
   return (
     <div className="myproduct-container3">
+    // My Profile Page
+<Helmet>
+  <title>My Profile</title>
+  <meta name="description" content="View and edit your profile details." />
+</Helmet>
+
       <div className="category-header3">
         <Header
           search={search}

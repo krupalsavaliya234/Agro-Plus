@@ -9,6 +9,8 @@ import API_URL from "../constants";
 import { DotLoader, BeatLoader } from "react-spinners";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {Helmet} from "react-helmet"
+
 function LikedProducts() {
   const navigate = useNavigate();
 
@@ -93,6 +95,12 @@ const [loader,setloader]=useState(false);
 
   return (
     <div className="likeproduct-header2">
+    // Liked Product Page
+<Helmet>
+  <title>Liked Products</title>
+  <meta name="description" content="View your liked products." />
+</Helmet>
+
       <div className="like-header2">
         <Header
           search={search}

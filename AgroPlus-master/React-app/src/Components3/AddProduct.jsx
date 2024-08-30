@@ -9,6 +9,7 @@ import { Toaster,toast } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import ClipLoader from "react-spinners/ClipLoader";
 import "./styles/addproduct.css";
+import {Helmet} from "react-helmet"
 
 function AddProduct() {
     const navigate = useNavigate();
@@ -97,6 +98,12 @@ function AddProduct() {
 
     return (
         <div>
+        // Add Product Page
+<Helmet>
+  <title>Add Product</title>
+  <meta name="description" content="Add a new product to our catalog." />
+</Helmet>
+
             <div className="addProduct-header">
                 <LoginHeader data={"hello"} />
             </div>
