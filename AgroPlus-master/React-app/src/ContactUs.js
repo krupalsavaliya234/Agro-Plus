@@ -5,12 +5,13 @@ import {Helmet} from "react-helmet"
 
 const ContactUs = () => (
   <>
+    <Navbar />
+    
   <Helmet>
     <title>Contact Us</title>
     <meta name="description" content="Get in touch with us for any queries or support." />
   </Helmet>
-  
-    <Navbar />
+ 
     <div className="contactus-wrapper">
       <form className="contactus-form">
         <div className="contactus-pageTitle contactus-title">Contact Us</div>

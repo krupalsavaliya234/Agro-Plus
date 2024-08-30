@@ -7,7 +7,7 @@ import Section4 from './section4/Section4'
 import Section5 from './section5/Section5'
 import Footer from './footer/Footer'
 import "./mainhome.css"
-
+// import ""
 function MainHome() {
   return (
     <div>

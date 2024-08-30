@@ -3,7 +3,7 @@ import './about-us.css';
 import Navbar from './Components/navbar/Navbar'
 import {Helmet} from "react-helmet"
 const AboutUs = () => ( 
-  <>
+  <div className='about-us'>
   <Helmet>
     <title>About Us</title>
     <meta name="description" content="Learn more about us and our mission." />
@@ -144,7 +144,7 @@ const AboutUs = () => (
       
       </div>
     </div>
-  </>
+  </div>
 );
 
 export default AboutUs;
