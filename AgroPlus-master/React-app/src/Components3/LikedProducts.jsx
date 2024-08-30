@@ -90,8 +90,9 @@ function LikedProducts() {
       <div className="liked-main2">
         <div className="d-flex justify-content-center flex-wrap">
           {loading ? (
-            <DotLoader color="#000" loading={loading} size={50} />
-          ) : (
+            <div className="spinner-container">
+            <DotLoader color="#000" loading={loader} size={50} />
+          </div>  ) : (
             filteredProducts.map((item) => {
               const isReadMore = readMoreId === item._id;
               return (
