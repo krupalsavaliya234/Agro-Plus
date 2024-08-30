@@ -7,7 +7,9 @@ import API_URL from "../constants";
 import io from "socket.io-client";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import DotLoader from "react-spinners/ClipLoader";
+// import DotLoader from "react-spinners/ClipLoader";
+import { DotLoader, BeatLoader } from "react-spinners";
+
 let socket;
 
 function ProductDetail() {

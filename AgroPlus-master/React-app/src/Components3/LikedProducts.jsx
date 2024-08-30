@@ -208,7 +208,7 @@ const [loader,setloader]=useState(false);
                       </div>
                     ))}
                   </Carousel>
-                  {/* <img width="300px" height="200px" src={API_URL + '/' + item.images[0]} /> */}
+               
                   <p className="m-2 ">
                     {" "}
                     {item.pname} | <span className="likeCatogary2"> {item.category}{" "}</span>
