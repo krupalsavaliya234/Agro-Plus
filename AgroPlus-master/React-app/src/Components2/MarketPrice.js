@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast"; 
 import "./market_price.css";
 import { useNavigate } from "react-router-dom";
+import { DotLoader, BeatLoader } from "react-spinners";
 
 const MarketPrice = () => {
   const navigate = useNavigate();
@@ -40,11 +41,13 @@ const MarketPrice = () => {
       const data1 = response.data.records;
       
       if (data1.length === 0) {
+        setWait(false);
         toast.error("No data available for the selected market.", {
           position: "top-center",
         });
         setRow(true);
       } else {
+        setWait(false)
         setData(data1);
         setDate(data1[0]?.arrival_date || "");
         setDistrict(data1[0]?.market || "");
@@ -55,6 +58,7 @@ const MarketPrice = () => {
         });
       }
     } catch (error) {
+      
       console.error("Error fetching data:", error);
       toast.error("Failed to fetch market prices. Please try again.");
     } finally {
@@ -64,6 +68,9 @@ const MarketPrice = () => {
 
   return (
     <div className={row ? "marketprice-container" : "marketprice-container1"}>
+    {wait &&  <div className="spinner-container">
+            <DotLoader color="#000" loading={wait} size={50} />
+          </div>}
       <Toaster />
       <div className="market">
         <form onSubmit={handleSubmit} className="market-price-form">
