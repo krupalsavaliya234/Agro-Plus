@@ -12,8 +12,8 @@ import { toast, Toaster } from "react-hot-toast";
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { DotLoader, BeatLoader } from "react-spinners";
 
-import ClipLoader from "react-spinners/ClipLoader";
 
 const MyProducts = () => {
   const navigate = useNavigate();
@@ -139,7 +139,7 @@ const MyProducts = () => {
 
       {loading ? ( // Show spinner while loading
         <div className="spinner-container">
-          <ClipLoader color="#000" loading={loading} size={50} />
+          <DotLoader color="#000" loading={loading} size={50} />
         </div>
       ) : (
         <div className="liked-main3">

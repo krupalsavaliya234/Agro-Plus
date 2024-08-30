@@ -6,7 +6,7 @@ import Categories from "./Categories";
 import { FaHeart } from "react-icons/fa";
 import "./styles/likeproduct.css";
 import API_URL from "../constants";
-
+import { DotLoader, BeatLoader } from "react-spinners";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 function LikedProducts() {
@@ -16,7 +16,7 @@ function LikedProducts() {
   const [cproducts, setcproducts] = useState([]);
   const [search, setsearch] = useState("");
   const [readMoreId, setReadMoreId] = useState(null);
-
+const [loader,setloader]=useState(false);
   useEffect(() => {
       if (!localStorage.getItem('token')) {
           navigate('/login')
@@ -24,6 +24,7 @@ function LikedProducts() {
   }, [])
 
   useEffect(() => {
+    setloader(true);
     const url = API_URL + "/liked-products";
     let data = { userId: localStorage.getItem("userId") };
     // console.log()
@@ -31,10 +32,13 @@ function LikedProducts() {
       .post(url, data)
       .then((res) => {
         if (res.data.products) {
+          setloader(true);
+
           setproducts(res.data.products);
         }
       })
       .catch((err) => {
+        setloader(true);
         alert("Server Err.");
       });
   }, []);
@@ -223,6 +227,11 @@ function LikedProducts() {
                         </p>
                       )}
                     </p>
+                    {loader && (
+          <div className="spinner-container">
+            <DotLoader color="#000" loading={loader} size={50} />
+          </div>
+        )}
                  
                 </div>
               );
