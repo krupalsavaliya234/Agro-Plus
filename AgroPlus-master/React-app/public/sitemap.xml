@@ -6,11 +6,54 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
-<url>
-  <loc>https://agroplus-rust.vercel.app/</loc>
-  <lastmod>2024-08-30T12:33:19+00:00</lastmod>
-</url>
+ <url>
+    <loc>https://agroplus-rust.vercel.app/</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/contact-us</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/About-us</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/my-products</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/sold-product</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/liked-products</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/add-product</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/home</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/Weather</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/market-price</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/government-policies</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://agroplus-rust.vercel.app/group-chat</loc>
+    <priority>0.70</priority>
+  </url>
 
 
 </urlset>
