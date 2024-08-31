@@ -8,7 +8,9 @@ import {Helmet} from "react-helmet"
 
 import { Toaster,toast } from "react-hot-toast";
 const GovernmentPolicy = () => {
+  <style>
   
+  </style>
   const navigate=useNavigate();
   useEffect(()=>{
    
