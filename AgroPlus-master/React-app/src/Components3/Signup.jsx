@@ -66,7 +66,7 @@ function Signup() {
   };
 
   return (
-    <div className="box2">// Signup Page
+    <div className="box2">
     <Helmet>
       <title>Signup</title>
       <meta name="description" content="Create a new account with us." />

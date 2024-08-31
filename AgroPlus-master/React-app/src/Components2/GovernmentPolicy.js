@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import data from "./policies";
 import "./policy.css";
+// import "/"
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {Helmet} from "react-helmet"
 
 import { Toaster,toast } from "react-hot-toast";
 const GovernmentPolicy = () => {
+  
   const navigate=useNavigate();
   useEffect(()=>{
    
