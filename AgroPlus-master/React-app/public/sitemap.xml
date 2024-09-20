@@ -6,62 +6,62 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>https://agroplus-rust.vercel.app/</loc>
+  <loc>https://agroplusweb.vercel.app/</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/contact-us</loc>
+  <loc>https://agroplusweb.vercel.app/contact-us</loc>
+  <lastmod>2024-08-31T06:49:18+00:00</lastmod>
+  <priority>0.80</priority> 
+</url>
+<url>
+  <loc>https://agroplusweb.vercel.app/About-us</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/About-us</loc>
+  <loc>https://agroplusweb.vercel.app/my-products</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/my-products</loc>
+  <loc>https://agroplusweb.vercel.app/sold-product</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/sold-product</loc>
+  <loc>https://agroplusweb.vercel.app/liked-products</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/liked-products</loc>
+  <loc>https://agroplusweb.vercel.app/add-product</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/add-product</loc>
+  <loc>https://agroplusweb.vercel.app/home</loc>  
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/home</loc>
-  <lastmod>2024-08-31T06:49:18+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://agroplus-rust.vercel.app/Weather</loc>
+  <loc>https://agroplusweb.vercel.app/Weather</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.70</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/market-price</loc>
+  <loc>https://agroplusweb.vercel.app/market-price</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.70</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/government-policies</loc>
+  <loc>https://agroplusweb.vercel.app/government-policies</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.70</priority>
 </url>
 <url>
-  <loc>https://agroplus-rust.vercel.app/group-chat</loc>
+  <loc>https://agroplusweb.vercel.app/group-chat</loc>
   <lastmod>2024-08-31T06:49:18+00:00</lastmod>
   <priority>0.70</priority>
 </url>
