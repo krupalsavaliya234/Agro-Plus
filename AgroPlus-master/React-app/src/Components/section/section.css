@@ -1,4 +1,5 @@
-.section01{
+/* Base Styles */
+.section01 {
     display: flex;
     position: relative;
     top: -80px;
@@ -6,44 +7,43 @@
     opacity: 1;
     z-index: 0.1;
     margin-top: 50px;
-    font-family: myfont1;
+    font-family: 'myfont1';
     background-color: #e1fcf9;
-
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
+
 @font-face {
-    font-family: myfont1;
+    font-family: 'myfont1';
     src: url('/public/fonts/Ranade-Variable.ttf');
 }
-.section-01{
+
+.section-01 {
     flex: 5;
     z-index: 0.1;
     text-align: left;
-    margin-left: 130px;
-    margin-top: 0;   
+    margin: 0 130px 0 130px;
 }
 
-.section-01   h2{
+.section-01 h2 {
     z-index: 0.1;
-    /* opacity: .8;     */
     font-size: 55px;
     font-weight: bolder;
     width: 96%;
-
-    
-    margin: auto;
-    margin-top: 20px;
+    margin: 20px 0 50px 0;
     padding-left: 50px;
     text-align: left;
-    margin-bottom: 50px;
-    margin-left: 0px;
 }
-.section-01 p{
+
+.section-01 p {
     font-size: 20px;
     z-index: 0.1;
-
     margin-top: -20px;
 }
-.section-01 a{
+
+.section-01 a {
     font-weight: 600;
     z-index: 0.1;
     position: relative;
@@ -51,132 +51,116 @@
     left: 60px;
     border-radius: 30px;
     background-color: rgb(112, 238, 223);
-    padding: 14px;
-    padding-right: 50px;
+    padding: 14px 50px;
     font-size: 20px;
-    justify-content: center;
-    align-items: center;
-
-}
-.logo1{
-    padding-top:2px;
-    padding-left: 10px;
-    
+    display: inline-block;
 }
 
-.section-012{
+.section-012 {
     flex: 6;
 }
 
+.section-012 img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
 
+.logo1 {
+    padding-top: 2px;
+    padding-left: 10px;
+}
+
+/* Responsive Styles */
+
+/* For screens up to 1000px */
 @media only screen and (max-width: 1000px) {
-
-    .section01{
-        width: 100%;
-        display: flex;
-        margin-top: 0px;
-        margin-bottom: 0px;
+    .section01 {
         flex-direction: column-reverse;
-    
-       }
-       
-      
-       .section-01{
+        margin-top: 0;
+        padding: 20px;
+    }
+
+    .section-01 {
         top: 27%;
         width: 80%;
-      position: absolute;
-        margin-left:10%;
-        margin-right: 20%;
+        position: relative;
+        margin: 0 auto;
         z-index: 1;
-        opacity: 2;
+        opacity: 1;
+        text-align: center;
     }
-       .section01 h2{
-        width: 100%;
-    
+
+    .section-01 h2 {
         font-size: 45px;
-    
-       }
-       .section0101 p{
-        font-size:20px;
-       }
-       .section01 img{
+    }
+
+    .section-01 p {
+        font-size: 20px;
+    }
+
+    .section-012 img {
         width: 100%;
-
-      position: relative;
-        z-index: 0;
-        opacity:0.5;
-        height: 30%;
-        
-       }
+        opacity: 0.8;
+        height: auto;
     }
+}
 
-
-
-
-
+/* For screens up to 600px */
 @media only screen and (max-width: 600px) {
-   .section01{
-    width: 100%;
-    display: flex;
-    flex-direction: column-reverse;
+    .section01 {
+        flex-direction: column-reverse;
+    }
 
-   }
-   .section-01{
-    top: 30%;
-    width: 70%;
-  position: absolute;
-    margin-left:10%;
-    margin-right: 20%;
-    z-index: 1;
-    opacity: 2;
-}
-.section-012 img{
-  border-radius: 10px;
-}
-   .section01 h2{
-    width: 100%;
+    .section-01 {
+        top: 30%;
+        width: 70%;
+        position: relative;
+        margin: 0 auto;
+        z-index: 1;
+        opacity: 1;
+        text-align: center;
+    }
 
-    font-size: 30px;
+    .section-01 h2 {
+        font-size: 30px;
+    }
 
-   }
-   .section01 p{
-    font-size:15px;
-   }
-   .section01 img{
-    width: 100%;
-    position: relative;
-    
-   }
+    .section-01 p {
+        font-size: 16px;
+    }
+
+    .section-012 img {
+        border-radius: 10px;
+    }
 }
 
+/* For screens up to 492px */
 @media only screen and (max-width: 492px) {
-    .section01{
-     width: 100%;
-     display: flex;
-     flex-direction: column-reverse;
- 
+    .section01 {
+        flex-direction: column-reverse;
     }
-    .section-01{
-     top: 5%;
-     width: 90%;
-   position: absolute;
-     margin-left:3%;
-     margin-right: 3%;
-     z-index: 1;
-     opacity: 2;
- }
-    .section01 h2{
-     width: 100%;
- 
-     font-size: 30px;
- 
+
+    .section-01 {
+        top: 5%;
+        width: 90%;
+        position: relative;
+        margin: 0 auto;
+        z-index: 1;
+        opacity: 1;
+        text-align: center;
     }
-    .section01 p{
-     font-size:15px;
+
+    .section-01 h2 {
+        font-size: 25px;
     }
-    .section01 img{
+
+    .section-01 p {
+        font-size: 14px;
+    }
+
+    .section-012 img {
         height: 400px;
-     width: 100%;
-     
+        width: 100%;
     }
- }
+}
